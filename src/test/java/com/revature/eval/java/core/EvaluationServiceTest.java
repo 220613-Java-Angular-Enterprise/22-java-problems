@@ -41,7 +41,7 @@ public class EvaluationServiceTest {
 	}
 	
 	/*******************************************************************
-	 * Question 1.B
+	 * Question 1.8
 	 ******************************************************************/
 	@Test
 	public void testPrintConversion1() {
