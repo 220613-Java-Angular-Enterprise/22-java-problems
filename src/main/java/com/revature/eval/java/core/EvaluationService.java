@@ -125,7 +125,12 @@ public class EvaluationService {
 	 * Otherwise, return false;
 	 */
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
-		// TODO Write an implementation for this method declaration
+		double numA = (int)(firstNum * 1000);
+		int numB = (int)(secondNum * 1000);
+		
+		if (numA == numB) {
+			return true;
+		}
 		return false;
 	}
 
