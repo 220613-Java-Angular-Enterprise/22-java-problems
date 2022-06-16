@@ -1,5 +1,7 @@
 package com.revature.eval.java.core;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -121,8 +123,9 @@ public class EvaluationService {
 	 * Otherwise, return false;
 	 */
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		DecimalFormat df = new DecimalFormat("####.###");
+		df.setRoundingMode(RoundingMode.DOWN);
+		return df.format(firstNum).equals(df.format(secondNum));
 	}
 
 	/**
