@@ -94,8 +94,10 @@ public class EvaluationService {
 	 * 
 	 * If the hourOfDay parameter is less than 0 or greater than 23, return false.
 	 */
-	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
-		// TODO Write an implementation for this method declaration
+	public boolean shouldWakeUp(boolean bork, int hour) {
+		if((hour == 22 && hour == 23) || (hour >= 0 && hour < 8) && bork) {
+			return true;
+		}
 		return false;
 	}
 
@@ -110,9 +112,50 @@ public class EvaluationService {
 	 * 
 	 * Otherwise, return false;
 	 */
+	
+	public int maxFun(String one, String two) {
+		if(one.length() >= two.length()) return one.length();
+		return two.length();
+	}
+	
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		//Step 1: get numbers into a form where they can be compared
+		Double num1 = firstNum;
+		Double num2 = secondNum;
+		String num1s = num1.toString();
+		String num2s = num2.toString();
+		int p1 = num1s.indexOf('.');
+		int p2 = num2s.indexOf('.');
+		//Step 2: compare numbers
+		
+		if(p1 != p2) return false;
+		
+		for(int i = 0; i < p1; i++) {
+			if(num1s.charAt(i) != num2s.charAt(i)) return false;
+		}
+		for(int i = p1+1; i < maxFun(num1s,num2s); i++) {
+			if(i > p1+3) break;
+			Character a;
+			Character b;
+			try { 
+				a = num1s.charAt(i);
+			} catch(java.lang.StringIndexOutOfBoundsException e) {
+				a = '0';
+			}
+			try {
+				b = num2s.charAt(i);
+			} catch(java.lang.StringIndexOutOfBoundsException e) {
+				b = '0';
+			}
+			if(a != b) return false;
+			//if(num1s.charAt(i) != num2s.charAt(i)) return false;
+		}
+		
+		//"46.13 vs 36.1365"
+		//"36.13" vs "36.1365" -- different string lengths could be an issue..
+		
+		//Step 3: ->
+		return true;
 	}
 
 	/**
