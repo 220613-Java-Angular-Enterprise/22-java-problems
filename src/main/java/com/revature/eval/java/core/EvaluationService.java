@@ -180,8 +180,9 @@ public class EvaluationService {
 	 * ZZ represents the calculated days.
 	 */
 	public String printYearsAndDays(long minutes) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		int daysInAYear = 365;
+		int days = (int)(minutes / 1440);
+		return minutes + " min = " + days / daysInAYear + " y and " + days % daysInAYear + " d";
 	}
 
 	/**
