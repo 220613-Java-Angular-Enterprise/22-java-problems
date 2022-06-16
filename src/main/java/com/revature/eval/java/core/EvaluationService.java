@@ -43,9 +43,9 @@ public class EvaluationService {
 		 */
 		public static String printConversion(double kph) {
 			double mph = kph * 0.621371;
-			DecimalFormat dF = new DecimalFormat("#.##");
+			DecimalFormat dF = new DecimalFormat("#");
 			
-			return(dF.format(kph) + " km/h = " + dF.format(mph) + "mi/h");
+			return((kph) + " km/h = " + dF.format(mph) + " mi/h");
 		}
 	}
 
@@ -69,9 +69,10 @@ public class EvaluationService {
 	 * If the parameter kiloBytes is less than 0 then print the text "Invalid
 	 * Value".
 	 */
-	public String printMegaBytesAndKiloBytes(int XX) {
-		// TODO Write an implementation for this method declaration
-		return null;
+	public String printMegaBytesAndKiloBytes(int kB) {
+		if(kB < 0) return("Invalid Value");
+		Integer mB = kB/1024;
+		return(kB + " KB = " + mB + " MB and " + (kB-mB*1024) + " KB");
 	}
 
 	/**
