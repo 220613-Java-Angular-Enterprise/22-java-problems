@@ -16,7 +16,7 @@ public class EvaluationService {
 	 * needs to return -1 to indicate an invalid value. 
 	 * 
 	 * Otherwise if it is positive, calculate the value of miles per hour, round it
-	 * and return it. For conversion and rounding use Math.round().
+	 * and return it. For conversion and rounding use Math.round().  
 	 */
 	static class SpeedConverter {
 
