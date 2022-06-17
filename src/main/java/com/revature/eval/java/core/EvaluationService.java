@@ -104,8 +104,18 @@ public class EvaluationService {
 	 */
 	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
 		
-		return false;		
-		 
+		if(isBarking) {
+			if(hourOfDay < 0 || hourOfDay >23) {
+				return false;
+			}else if(hourOfDay<8 || hourOfDay>22) {
+				return true;
+			}else {
+				return false;
+			}
+		}else {
+			return false;
+		}
+		 		 
 	}
 
 	/**
@@ -533,10 +543,27 @@ public class EvaluationService {
 	 * Write a method to return an int array of 3 random numbers between 1 - 100.
 	 * Generate the 3 random numbers (1 - 100 inclusive) using the java.util.Random class.
 	 */
-	
 	public int[] threeLuckyNumbers() {
 		return null;
 	}
+//	public int[] threeLuckyNumbers() {
+//		
+//		int counter = 0;
+//		int num = 0;
+//		int[] a = new int[2];
+//		
+//		while (counter<=2) {
+//			
+//			num = (int) Math.random();
+//			
+//			if(num>=1 && num<=100) {
+//				a[counter] = num;
+//				counter++;
+//			}
+//		}
+//		return a;
+//		
+//	}
 	
 	/*
 	 * 22. Easy Guessing Game
@@ -551,13 +578,10 @@ public class EvaluationService {
 	public int guessingGame(int x, int y) {
 		
 		 int num = 0;
-		 
 		 do {
 			num = (int) Math.random();
-			
 		} while (num < x || num > y);
-		 
-		
+		 		
 		return num;
 	}
 }
