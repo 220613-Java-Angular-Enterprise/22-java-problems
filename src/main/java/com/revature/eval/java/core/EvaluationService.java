@@ -1,5 +1,6 @@
 package com.revature.eval.java.core;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -245,9 +246,24 @@ public class EvaluationService {
 	 * invalid value.
 	 */
 	public int sumFirstAndLastDigit(int num) {
-		// TODO Write an implementation for this method declaration
-		return 0;
-	}
+		
+		if(num >=0) {
+			
+			int sum=0;
+ 			String s = String.valueOf(num);
+ 			char[] c = s.toCharArray();
+ 			
+ 			sum+= Integer.parseInt(String.valueOf(c[0])) 
+ 					+ 
+ 					Integer.parseInt(String.valueOf(c[c.length-1])) ;
+ 			
+			return sum;
+		}else {
+			return -1;
+		}
+		
+		
+ 	}
 
 	/**
 	 * 10. Reverse String
