@@ -522,8 +522,19 @@ public class EvaluationService {
 	 * free: 1
 	 */
 	public Map<String, Integer> wordCount(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		Map<String, Integer> catCounter = new HashMap<>();
+		// once again no idea what kind of random delimiter will be used so manually adding what is seen
+		for(String word : string.split(" |,|\n")) {
+			if(word.isEmpty()) {
+				continue;
+			}
+			if(!catCounter.containsKey(word)) {
+				catCounter.put(word, 1);
+			} else {
+				catCounter.replace(word, catCounter.get(word) + 1); 
+			}
+		}
+		return catCounter;
 	}
 
 	/**
