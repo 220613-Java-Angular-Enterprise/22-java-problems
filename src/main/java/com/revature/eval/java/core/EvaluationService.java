@@ -2,6 +2,7 @@ package com.revature.eval.java.core;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -577,8 +578,22 @@ public class EvaluationService {
 	 * Note that 1 is not a prime number.
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		List<Long> primes = new ArrayList<>();
+		// Pollard's Rho I believe
+		while(l % 2 == 0) {
+			primes.add(2L);
+			l /= 2L;
+		}
+		for(int i = 3; i <= Math.sqrt(l); i+=2) {
+			while(l % i == 0) {
+				primes.add((long)i);
+				l /= i;
+			}
+		}
+		if(l > 1) {
+			primes.add(l);
+		}
+		return primes;
 	}
 
 	/**
