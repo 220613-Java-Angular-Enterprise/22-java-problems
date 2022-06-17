@@ -549,6 +549,15 @@ public class EvaluationService {
 	 */
 	
 	public int guessingGame(int x, int y) {
-		return 0;
+		
+		 int num = 0;
+		 
+		 do {
+			num = (int) Math.random();
+			
+		} while (num < x || num > y);
+		 
+		
+		return num;
 	}
 }
