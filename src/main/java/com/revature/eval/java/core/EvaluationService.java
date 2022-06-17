@@ -1,5 +1,6 @@
 package com.revature.eval.java.core;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -100,6 +101,10 @@ public class EvaluationService {
 	 */
 	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
 		// TODO Write an implementation for this method declaration
+		if(hourOfDay < 0 || hourOfDay > 23)
+			return false;
+		if(isBarking && ((hourOfDay < 8) || (hourOfDay > 22)))
+			return true;
 		return false;
 	}
 
@@ -116,6 +121,10 @@ public class EvaluationService {
 	 */
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
 		// TODO Write an implementation for this method declaration
+		// Trick I learned teaching children decimal division.
+		// Not really a good idea but it works
+		if((int)(firstNum * 1000) == (int) (secondNum * 1000))
+			return true;
 		return false;
 	}
 
