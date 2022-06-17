@@ -608,8 +608,33 @@ public class EvaluationService {
 	 * numbers, pretend they don't exist and implement them yourself.
 	 */
 	public int calculateNthPrime(int k) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		// No constant way to calculate the exact Nth prime
+		// Sieve is the go to
+		if(k < 1) {
+			throw new IllegalArgumentException();
+		}
+		int[] primecontainer = new int[5000000]; // some arbitrarily large number to sieve through
+		for(int i = 0; i < primecontainer.length; i++) {
+			primecontainer[i] = i+1;
+		}
+		for(int i = 1; i < Math.sqrt(primecontainer.length); i++) {
+			if(primecontainer[i] != -1) {
+				for(int j = primecontainer[i] * primecontainer[i] - 1; j < primecontainer.length; j+=primecontainer[i]) {
+					primecontainer[j] = -1;
+				}
+			}
+		}
+		for(int num : primecontainer) {
+			if(num == -1) {
+				continue;
+			}
+			if(k <= 0) {
+				return num;
+			}
+			k--;
+			
+		}
+		return -1; // I don't see how it can fall through but the compiler requires this return
 	}
 
 	/**
