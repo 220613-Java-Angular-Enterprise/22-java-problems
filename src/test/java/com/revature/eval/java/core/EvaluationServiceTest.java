@@ -488,6 +488,10 @@ public class EvaluationServiceTest {
 	public void testProductOfPrimesAndNonPrimes() {
 		assertEquals(Arrays.asList(2L, 2L, 3L), evaluationService.calculatePrimeFactorsOf(12L));
 	}
+	@Test
+	public void testProductOfPrimesAndNonPrimes2() {
+		assertEquals(Arrays.asList(2L, 2L, 3L, 31L), evaluationService.calculatePrimeFactorsOf(372L));
+	}
 
 	@Test
 	public void testProductOfPrimes() {

@@ -1,9 +1,9 @@
 package com.revature.eval.java.core;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -595,9 +595,37 @@ public class EvaluationService {
 	 * 
 	 * Note that 1 is not a prime number.
 	 */
-	public List<Long> calculatePrimeFactorsOf(long l) {
-		// TODO Write an implementation for this method declaration
-		return null;
+	private static long lastIter;
+	public static List<Long> calculatePrimeFactorsOf(long l) {
+		
+		LinkedList<Long> ans = new LinkedList<>();
+		lastIter = 2L;
+		calPrime(ans,l);
+		
+		return(ans);
+		
+	}
+	
+	private static void calPrime(LinkedList<Long> list,long l) {
+		//step 1: find the smallest factor of l, div
+
+		long div = 2;
+		boolean found = false;
+		if(l > 3) {
+			for(long i = lastIter; i <= l/2; i++) {
+				if(l%i == 0) {
+					div = i; lastIter = i; found = true; break;
+				}
+			}
+		
+		//step 2: call self on l / div unless l is prime (div not found)
+			if(found) {
+				calPrime(list,l/div);
+			}
+			
+		}
+		//step 3; add factors to list, in order
+		if(found) list.addFirst(div); else list.addFirst(l);
 	}
 
 	/**
