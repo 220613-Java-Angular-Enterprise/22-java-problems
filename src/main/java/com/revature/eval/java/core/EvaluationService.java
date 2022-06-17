@@ -22,8 +22,12 @@ public class EvaluationService {
 	static class SpeedConverter {
 
 		public static long toMilesPerHour(double kilometersPerHour) {
-			// TODO Write an implementation for this method declaration
-			return 0;
+			if (kilometersPerHour >=0) {
+				//1 MPH is about 1.60934 KPH
+				return (long) Math.round(kilometersPerHour/1.60934);
+			}else {
+				return -1;
+			}
 		}
 
 		/**
@@ -42,8 +46,11 @@ public class EvaluationService {
 		 * Value"
 		 */
 		public static String printConversion(double kilometersPerHour) {
-			// TODO Write an implementation for this method declaration
-			return null;
+			if(kilometersPerHour>=0) {
+				return kilometersPerHour+" km/h = "+toMilesPerHour(kilometersPerHour)+" mi/h";
+			}else {
+				return "Invalid Value";
+			}
 		}
 	}
 
