@@ -101,7 +101,7 @@ public class EvaluationServiceTest {
 	public void testDecimalComparator1() {
 		assertEquals(true, evaluationService.areEqualByThreeDecimalPlaces(-3.1756, -3.175));
 		assertEquals(true, evaluationService.areEqualByThreeDecimalPlaces(1.6043, 1.604365));
-		assertEquals(true, evaluationService.areEqualByThreeDecimalPlaces(101.0043, 101.004365));
+		assertEquals(true, evaluationService.areEqualByThreeDecimalPlaces(101.000543, 101.));
 	}
 	
 	@Test

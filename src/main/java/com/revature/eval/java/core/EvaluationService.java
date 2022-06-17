@@ -137,6 +137,7 @@ public class EvaluationService {
 			if(i > p1+3) break;
 			Character a;
 			Character b;
+			/*
 			try { 
 				a = num1s.charAt(i);
 			} catch(java.lang.StringIndexOutOfBoundsException e) {
@@ -146,7 +147,10 @@ public class EvaluationService {
 				b = num2s.charAt(i);
 			} catch(java.lang.StringIndexOutOfBoundsException e) {
 				b = '0';
-			}
+			}*/
+			if(i < num1s.length()) a = num1s.charAt(i); else a = '0';
+			if(i < num2s.length()) b = num2s.charAt(i); else b = '0';
+			
 			if(a != b) return false;
 			//if(num1s.charAt(i) != num2s.charAt(i)) return false;
 		}
@@ -169,19 +173,15 @@ public class EvaluationService {
 	 * false.
 	 */
 	static class TeenNumberChecker {
-
+		private static boolean isNotTeen(int a) {
+			if(a < 13 || a > 19) return true;
+			return false;
+		}
 		public static boolean hasTeen(int x, int y, int z) {
-			// TODO Write an implementation for this method declaration
-			return false;
+			if(isNotTeen(x) && isNotTeen(y) && isNotTeen(z)) return false;
+			return true;
 		}
 
-		// We can initialize isTeen method first
-		// Then pass the parameter to hasTeen method
-
-		public static boolean isTeen(int number) {
-			// TODO Write an implementation for this method declaration
-			return false;
-		}
 	}
 
 	/**
@@ -199,9 +199,12 @@ public class EvaluationService {
 	 * XX represents the original value minutes. YY represents the calculated years.
 	 * ZZ represents the calculated days.
 	 */
-	public String printYearsAndDays(long minutes) {
-		// TODO Write an implementation for this method declaration
-		return null;
+	private static int minPYear = 525600;
+	public String printYearsAndDays(long mins) {
+		if(mins < 0) return("Invalid Value");
+		Integer years = (int) (mins/minPYear);
+		return((mins + " min = " + years + " y and " + (int) (mins-years*minPYear)*365/minPYear + " d"));
+		//return null;
 	}
 
 	/**
