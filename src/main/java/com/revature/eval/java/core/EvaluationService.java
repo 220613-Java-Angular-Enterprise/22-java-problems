@@ -342,6 +342,7 @@ public class EvaluationService {
 		private double sideOne;
 		private double sideTwo;
 		private double sideThree;
+		private int type;
 
 		public Triangle() {
 			super();
@@ -352,6 +353,7 @@ public class EvaluationService {
 			this.sideOne = sideOne;
 			this.sideTwo = sideTwo;
 			this.sideThree = sideThree;
+			this.type = findType();
 		}
 
 		public double getSideOne() {
@@ -377,20 +379,24 @@ public class EvaluationService {
 		public void setSideThree(double sideThree) {
 			this.sideThree = sideThree;
 		}
-
+		
+		private int findType() {
+			if(sideOne == sideTwo && sideTwo == sideThree) return(0);
+			if(sideOne == sideTwo || sideTwo == sideThree || sideOne == sideThree) return(1);
+			return(2);
+		}
+		
+		
 		public boolean isEquilateral() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			return(type == 0);
 		}
 
 		public boolean isIsosceles() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			return(type == 1);
 		}
 
 		public boolean isScalene() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			return(type == 2);
 		}
 
 	}
@@ -410,8 +416,22 @@ public class EvaluationService {
 	 * 3 + 2*1 + 2*3 + 2 + 1 = 3 + 2 + 6 + 3 = 5 + 9 = 14
 	 */
 	public int getScrabbleScore(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		if(string.length() == 0) return(0);
+		char[] lets = new char[] {'a','e','i','o','u','l','n','r','s','t','d','g','b','c','m','p','f','h','v','w','y','k','j','x','q','z'};
+		byte[] points = new byte[] {1,1,1,1,1,1,1,1,1,1,2,2,3,3,3,3,4,4,4,4,4,5,8,8,10,10};  
+		
+		int total = 0;
+		
+		char[] chAr = string.toCharArray();
+		for(int i = 0; i < string.length();i++) {
+			for(int j = 0; j < 26; j++) {
+				if(Character.toLowerCase(chAr[i]) == lets[j]) {
+					total+=points[j];
+					break;
+				}
+			}
+		}
+		return(total);
 	}
 
 	/**
@@ -446,9 +466,31 @@ public class EvaluationService {
 	 * 
 	 * Note: As this exercise only deals with telephone numbers used in
 	 * NANP-countries, only 1 is considered a valid country code.
+	 *  
 	 */
-	public String cleanPhoneNumber(String string) {
-		return null;
+	public String cleanPhoneNumber(String string) throws IllegalArgumentException {
+		//step 1: remove all non numbers
+		char[] chAr = string.toCharArray();
+		char[] outArr = new char[11];
+		int iter = 0;
+		IllegalArgumentException e = new IllegalArgumentException();
+		for(char c : chAr) {
+			if(iter > 10) {
+				
+				throw(e);
+			}
+			int check = Character.getNumericValue(c);
+			if(check > -1 && check < 10) {
+				outArr[iter++] = c;
+			}
+		}
+		if(iter < 9) throw(e);
+		
+		//step 2: check for country code, removing if needed
+		//step 2b: ignore step 2
+		String s = new String(outArr);
+		if(outArr[10] != '\u0000') return(s.substring(1));
+		return(s.substring(0, 10));
 	}
 
 	/**
