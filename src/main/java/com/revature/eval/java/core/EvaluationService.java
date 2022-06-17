@@ -103,8 +103,9 @@ public class EvaluationService {
 	 * If the hourOfDay parameter is less than 0 or greater than 23, return false.
 	 */
 	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
+		
+		return false;		
 		 
-		return false;
 	}
 
 	/**
@@ -165,8 +166,18 @@ public class EvaluationService {
 	 * ZZ represents the calculated days.
 	 */
 	public String printYearsAndDays(long minutes) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+		if(minutes<0) {
+			return "Invalid Value";
+		}else {
+			
+			long yr =  (minutes/525600);
+			long days = (minutes - (yr*525600))/1440;
+			
+			return minutes+" min = "+Long.toString(yr)+" y and "+Long.toString(days)+" d";
+		}
+		
+		
 	}
 
 	/**
