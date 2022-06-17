@@ -676,7 +676,22 @@ public class EvaluationService {
 	 * The sum of these multiples is 78.
 	 */
 	public int getSumOfMultiples(int i, int[] set) {
-		return 0;
+		int[] nums = new int[i-1];
+		int sum = 0;
+		for(int j = 0; j < nums.length; j++) {
+			nums[j] = j+1;
+		}
+		Set<Integer> unique = new HashSet<>();
+		for(int num : set) {
+			for(int mult : nums) {
+				if(mult % num != 0) continue;
+				if(mult % num == 0) unique.add(mult);
+			}
+		}
+		for(int num : unique) {
+			sum += num;
+		}
+		return sum;
 	}
 	
 	/**
