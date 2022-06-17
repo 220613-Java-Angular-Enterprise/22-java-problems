@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import org.w3c.dom.css.Counter;
 
@@ -742,7 +743,12 @@ public class EvaluationService {
 	 */
 
 	public int[] threeLuckyNumbers() {
-		return null;
+		int[] intArr = new int[3];
+		Random x = new Random();
+		for(int i = 0; i < 3; i++) {
+			intArr[i] = x.nextInt(101);
+		}
+		return intArr;
 	}
 
 	/*
@@ -756,6 +762,11 @@ public class EvaluationService {
 	 */
 
 	public int guessingGame(int x, int y) {
-		return 0;
+		int out;
+		Random r = new Random();
+		int range = y-x;
+		if(range < 0) range = 0-range;
+		out = r.nextInt(range+1) + (x>y ? y : x);
+		return(out);
 	}
 }
