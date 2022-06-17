@@ -3,6 +3,7 @@ package com.revature.eval.java.core;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class EvaluationService {
 
@@ -574,7 +575,13 @@ public class EvaluationService {
 	 */
 	
 	public int[] threeLuckyNumbers() {
-		return null;
+		int[] luckyNumbers = new int[3];
+		Random rnd = new Random();
+		for (int i = 0; i < luckyNumbers.length; i++)
+		{
+			luckyNumbers[i] = rnd.nextInt(100 - 1 + 1) + 1;
+		}
+		return luckyNumbers;
 	}
 	
 	/*
