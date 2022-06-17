@@ -392,7 +392,7 @@ public class EvaluationService {
 		}
 
 		public boolean isIsosceles() {
-			if(this.sideOne == this.sideTwo || this.sideOne == this.sideThree) {
+			if(this.sideOne == this.sideTwo || this.sideOne == this.sideThree || this.sideTwo == this.sideThree) {
 				return true;
 			}
 			return false;
