@@ -693,8 +693,15 @@ public class EvaluationService {
 	 * insensitive. Input will not contain non-ASCII symbols.
 	 */
 	public boolean isPangram(String string) {
-		// TODO Write an implementation for this method declaration
+		HashMap<Character, Character> map = new HashMap<>();
+		int counter = 0;
+		for(Character c : string.toLowerCase().toCharArray()) {
+			Character a = map.putIfAbsent(c, c);
+			if(a == null && c != ' ') counter++;
+		}
+		if(counter == 26) return true;
 		return false;
+		
 	}
 
 	/**
