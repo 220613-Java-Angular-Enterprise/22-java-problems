@@ -217,8 +217,12 @@ public class EvaluationService {
 	 * statement or switch statement whatever is easier for you.
 	 */
 	public String printNumberInWord(int number) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		String[] sArr = new String[] {"ZERO","ONE","TWO","THREE","FOUR","FIVE","SIX","SEVEN","EIGHT","NINE"};
+		try {
+			return(sArr[number]);
+		} catch(ArrayIndexOutOfBoundsException e) {
+			return("OTHER");
+		}
 	}
 
 	/**
