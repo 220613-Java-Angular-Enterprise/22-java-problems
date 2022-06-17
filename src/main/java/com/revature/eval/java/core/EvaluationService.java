@@ -552,6 +552,19 @@ public class EvaluationService {
 	 * a number is an Armstrong number.
 	 */
 	public boolean isArmstrongNumber(int input) {
+		// not checked but assuming positive input
+		if(input < 0) {
+			return false;
+		}
+		String lengthChecker = Integer.toString(input);
+		int num = 0;
+		while(input > 0) {
+			num += Math.pow((input % 10), lengthChecker.length());
+			input /= 10;
+		}
+		if(num == Integer.parseInt(lengthChecker)) {
+			return true;
+		}
 		return false;
 	}
 
