@@ -496,8 +496,21 @@ public class EvaluationService {
 	 * Note: As this exercise only deals with telephone numbers used in
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
-	public String cleanPhoneNumber(String string) {
-		return null;
+	public String cleanPhoneNumber(String string) throws IllegalArgumentException {
+		string = string.replaceAll("\\+|\\)|\\(|-| |\\.", "");
+		if(string.charAt(0) == '1') {
+			string = string.substring(1);
+		}
+		// was not in the function description
+		if(string.length() > 11) {
+			throw new IllegalArgumentException();
+		}
+		try {
+			Integer.parseInt(string);
+		} catch (NumberFormatException nfe) {
+			throw new IllegalArgumentException();
+		}
+		return string;
 	}
 
 	/**
