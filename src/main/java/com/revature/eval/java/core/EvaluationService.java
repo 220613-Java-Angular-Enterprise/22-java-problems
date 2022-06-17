@@ -3,9 +3,12 @@ package com.revature.eval.java.core;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class EvaluationService {
 
@@ -650,8 +653,15 @@ public class EvaluationService {
 	 * insensitive. Input will not contain non-ASCII symbols.
 	 */
 	public boolean isPangram(String string) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		string = string.toLowerCase().replace(" ", "");
+		if(string.length() < 26) {
+			return false;
+		}
+		Set<String> unique = new HashSet<String>(Arrays.asList(string.split("")));
+		if(unique.size() < 26) {
+			return false;
+		}
+		return true;
 	}
 
 	/**
