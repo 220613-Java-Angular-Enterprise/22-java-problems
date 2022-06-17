@@ -2,6 +2,7 @@ package com.revature.eval.java.core;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -417,8 +418,49 @@ public class EvaluationService {
 	 * 3 + 2*1 + 2*3 + 2 + 1 = 3 + 2 + 6 + 3 = 5 + 9 = 14
 	 */
 	public int getScrabbleScore(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		if(string.isEmpty()) {
+			return 0;
+		}
+		int score = 0;
+		// quite bad to instantiate every method call
+		HashMap<String, String> pointTable = new HashMap<>();
+		pointTable.put("onePt", "AEIOULNRST");
+		pointTable.put("twoPt", "DG");
+		pointTable.put("threePt", "BCMP");
+		pointTable.put("fourPt", "FHVWY");
+		pointTable.put("fivePt", "K");
+		pointTable.put("eightPt", "JX");
+		pointTable.put("tenPt", "QZ");
+		for(String letter : string.toUpperCase().split("")) {
+			if(pointTable.containsKey(letter)) {
+				score += Integer.parseInt(pointTable.get(letter));
+				continue;
+			}
+			// can't think of a more clever way to prevent the conditional chain
+			if(pointTable.get("onePt").contains(letter)) {
+				pointTable.put(letter, "1");
+				score += 1;
+			} else if(pointTable.get("twoPt").contains(letter)) {
+				pointTable.put(letter, "2");
+				score += 2;
+			} else if(pointTable.get("threePt").contains(letter)) {
+				pointTable.put(letter, "3");
+				score += 3;
+			} else if(pointTable.get("fourPt").contains(letter)) {
+				pointTable.put(letter, "4");
+				score += 4;
+			} else if(pointTable.get("fivePt").contains(letter)) {
+				pointTable.put(letter, "5");
+				score += 5;
+			} else if(pointTable.get("eightPt").contains(letter)) {
+				pointTable.put(letter, "8");
+				score += 8;
+			} else if(pointTable.get("tenPt").contains(letter)) {
+				pointTable.put(letter, "10");
+				score += 10;
+			}
+		}
+		return score;
 	}
 
 	/**
