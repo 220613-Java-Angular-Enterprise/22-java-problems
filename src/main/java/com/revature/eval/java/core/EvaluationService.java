@@ -1,6 +1,7 @@
 package com.revature.eval.java.core;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -307,8 +308,23 @@ public class EvaluationService {
 	 * long name like Portable Network Graphics to its acronym (PNG).
 	 */
 	public String acronym(String phrase) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		if(phrase.length() < 1) return("");
+		char[] chAr = phrase.toCharArray();
+		boolean space = true;
+		int iter = 0;
+		for(int i = 0; i < phrase.length(); i++) {
+			char temp = chAr[i];
+			if(space) { 
+				 
+				chAr[iter++] = Character.toUpperCase(temp);
+				space = false;
+				
+			} else {
+				if(temp == ' ' || temp == '-' || temp == '_') space =true;
+			}
+		}
+		String b = new String(chAr);
+		return(b.substring(0, iter));
 	}
 
 	/**
