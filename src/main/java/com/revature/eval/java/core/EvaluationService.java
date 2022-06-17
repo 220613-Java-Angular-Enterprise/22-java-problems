@@ -705,7 +705,8 @@ public class EvaluationService {
 	 */
 	
 	public int[] threeLuckyNumbers() {
-		return null;
+		int[] magic = {(int)(Math.random() * 100) + 1, (int)(Math.random() * 100) + 1, (int)(Math.random() * 100) + 1};
+		return magic;
 	}
 	
 	/*
