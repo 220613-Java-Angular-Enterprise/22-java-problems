@@ -73,7 +73,10 @@ public class EvaluationService {
 	 */
 	public String printMegaBytesAndKiloBytes(int XX) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		if(XX < 0)
+			return "Invalid Value";
+		
+		return XX + " KB = " + (XX / 1024) + " MB and " + XX % 1024 + " KB";
 	}
 
 	/**
