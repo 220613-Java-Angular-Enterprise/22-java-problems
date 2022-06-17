@@ -306,30 +306,30 @@ public class EvaluationServiceTest {
 	/*******************************************************************
 	 * Question 13
 	 ******************************************************************/
-//	@Test
-//	public void testAValuableLetter() {
-//		assertEquals(4, evaluationService.getScrabbleScore("f"));
-//	}
-//
-//	@Test
-//	public void testAShortValuableWord() {
-//		assertEquals(12, evaluationService.getScrabbleScore("zoo"));
-//	}
-//
-//	@Test
-//	public void testAMediumWord() {
-//		assertEquals(6, evaluationService.getScrabbleScore("street"));
-//	}
-//
-//	@Test
-//	public void testAMediumValuableWord() {
-//		assertEquals(22, evaluationService.getScrabbleScore("quirky"));
-//	}
-//
-//	@Test
-//	public void testALongMixCaseWord() {
-//		assertEquals(41, evaluationService.getScrabbleScore("OxyphenButazone"));
-//	}
+	@Test
+	public void testAValuableLetter() {
+		assertEquals(4, evaluationService.getScrabbleScore("f"));
+	}
+
+	@Test
+	public void testAShortValuableWord() {
+		assertEquals(12, evaluationService.getScrabbleScore("zoo"));
+	}
+
+	@Test
+	public void testAMediumWord() {
+		assertEquals(6, evaluationService.getScrabbleScore("street"));
+	}
+
+	@Test
+	public void testAMediumValuableWord() {
+		assertEquals(22, evaluationService.getScrabbleScore("quirky"));
+	}
+
+	@Test
+	public void testALongMixCaseWord() {
+		assertEquals(41, evaluationService.getScrabbleScore("OxyphenButazone"));
+	}
 
 	/*******************************************************************
 	 * Question 14

@@ -417,11 +417,20 @@ public class EvaluationService {
 	 */
 	public int getScrabbleScore(String string) {
 		if(string.length() == 0) return(0);
+		
 		char[] lets = new char[] {'a','e','i','o','u','l','n','r','s','t','d','g','b','c','m','p','f','h','v','w','y','k','j','x','q','z'};
 		byte[] points = new byte[] {1,1,1,1,1,1,1,1,1,1,2,2,3,3,3,3,4,4,4,4,4,5,8,8,10,10};  
-		
+		int[] fin = new int['z'+1];
+		for(int i = 0; i < 26; i++) {
+			fin[lets[i]] = points[i]; 
+		}
 		int total = 0;
 		
+		for(int i = 0; i < string.length(); i++) {
+			total += fin[string.toLowerCase().charAt(i)];
+		}
+		
+		/*
 		char[] chAr = string.toCharArray();
 		for(int i = 0; i < string.length();i++) {
 			for(int j = 0; j < 26; j++) {
@@ -431,6 +440,10 @@ public class EvaluationService {
 				}
 			}
 		}
+		*/ // end bad implementation
+		
+		
+		
 		return(total);
 	}
 
