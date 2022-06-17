@@ -241,8 +241,19 @@ public class EvaluationService {
 	 * invalid value.
 	 */
 	public int sumFirstAndLastDigit(int num) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		if (num < 0) {
+			return -1;
+		}
+		
+		int firstNum = num;
+		
+		while (firstNum >= 10) {
+			firstNum /= 10;
+		}
+		
+		int lastNum = num % 10;
+		
+		return (firstNum + lastNum);
 	}
 
 	/**
