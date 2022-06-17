@@ -595,6 +595,6 @@ public class EvaluationService {
 	 */
 	
 	public int guessingGame(int x, int y) {
-		return 0;
+		return (int) (Math.random() * y - x + 1) + x;
 	}
 }
