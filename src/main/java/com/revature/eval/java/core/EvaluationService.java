@@ -1,6 +1,7 @@
 package com.revature.eval.java.core;
 
 import java.text.DecimalFormat;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -273,9 +274,10 @@ public class EvaluationService {
 	 * If the number is negative then the method needs to return -1 to indicate an
 	 * invalid value.
 	 */
-	public int sumFirstAndLastDigit(int num) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+	public int sumFirstAndLastDigit(Integer num) {
+		if(num < 0) return -1;
+		String s = num.toString();
+		return(Character.digit(s.charAt(0), 10)+Character.digit(s.charAt(s.length()-1), 10));
 	}
 
 	/**
@@ -284,9 +286,17 @@ public class EvaluationService {
 	 * Without using the StringBuilder or StringBuffer class, write a method that
 	 * reverses a String. Example: reverse("example"); -> "elpmaxe"
 	 */
-	public String reverse(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+	public String reverse(String s) {
+		int len = s.length();
+		if(len < 2) return(s);
+		char[] chAr = new char[len];
+		for(int i = 0; i < len; i++) {
+			chAr[len-i-1] = s.charAt(i);
+		}
+		String b = new String(chAr);
+		return(b);
+		
+		
 	}
 
 	/**
