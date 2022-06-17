@@ -457,7 +457,16 @@ public class EvaluationService {
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
 	public String cleanPhoneNumber(String string) {
-		return null;
+		String noCountryCode = string.replaceAll("\\+1|1\\s", "");
+		String cleanNumber = noCountryCode.replaceAll("\\D", "");
+		if (cleanNumber.length() < 10) {
+			//if result string less than 10 chars, must have invalid chars!
+			throw new IllegalArgumentException("Input contains illegal characters..");
+			
+		} else if (cleanNumber.length() > 10) {
+			throw new IllegalArgumentException("Phone number must be 10 digits long..");
+		}
+		return cleanNumber;
 	}
 
 	/**
