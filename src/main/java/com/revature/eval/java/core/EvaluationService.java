@@ -263,8 +263,17 @@ public class EvaluationService {
 	 * reverses a String. Example: reverse("example"); -> "elpmaxe"
 	 */
 	public String reverse(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+	    String reverseString = "";
+	    
+	    if (string.length() == 0) {
+	       return string; 
+	    }
+	    
+	    for (int i = string.length() - 1; i >= 0; i--) {
+	        reverseString = reverseString +string.charAt(i);
+	    }
+	    
+	    return reverseString;
 	}
 
 	/**
