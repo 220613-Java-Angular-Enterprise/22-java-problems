@@ -489,7 +489,7 @@ public class EvaluationService {
 		//step 2: check for country code, removing if needed
 		//step 2b: ignore step 2
 		String s = new String(outArr);
-		if(outArr[10] != '\u0000') return(s.substring(1));
+		if(outArr[10] != '\u0000') if(outArr[0] == 1) return(s.substring(1)); else throw(e);
 		return(s.substring(0, 10));
 	}
 
@@ -521,7 +521,24 @@ public class EvaluationService {
 	 * a number is an Armstrong number.
 	 */
 	public boolean isArmstrongNumber(int input) {
-		return false;
+		if(input < 10) return true;
+		char[] chAr =  Integer.toString(input).toCharArray();
+		int len = chAr.length;
+		int num = 0;
+		int ret = 0;
+		int temp = 0;
+		for(int i = 0; i < len; i++) {
+			temp = Character.digit(chAr[i], 10);
+			num = temp;
+			//System.out.println(temp);
+			for(int j = 0; j < len-1; j++) {
+				num *= temp; 
+			}
+			//System.out.println(num);
+			ret += num;
+		}
+		//System.out.println("input: " + input + " output: " + ret);
+		return (ret == input);
 	}
 
 	/**
