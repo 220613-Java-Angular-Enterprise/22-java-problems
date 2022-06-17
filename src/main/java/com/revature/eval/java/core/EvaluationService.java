@@ -379,8 +379,47 @@ public class EvaluationService {
 	 * 3 + 2*1 + 2*3 + 2 + 1 = 3 + 2 + 6 + 3 = 5 + 9 = 14
 	 */
 	public int getScrabbleScore(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		Map<Character, Integer> letterValues = new HashMap<>();
+		String value1 = "aeioulnrst";
+		String value2 = "dg";
+		String value3 = "bcmp";
+		String value4 = "fhvwy";
+		String value5 = "k";
+		String value8 = "jx";
+		String value10 = "qz";
+		
+		String[] values = new String[]{value1, value2, value3, value4, value5, value8, value10};
+		
+		for (int i = 0; i < values.length; i++)
+		{
+			int letterValue = i+1;
+
+			switch (i+1)
+			{
+				case 6:
+					letterValue = 8;
+					break;
+				case 7:
+					letterValue = 10;
+					break;
+				default:
+					break;
+			}
+		
+			for (int j = 0; j < values[i].length(); j++)
+			{
+				letterValues.put(values[i].charAt(j), letterValue);
+			} 
+		}
+		
+		
+		int score = 0;
+		String lcString = string.toLowerCase();
+		for (int i = 0; i < lcString.length(); i++) 
+		{
+			score += letterValues.get(lcString.charAt(i));
+		}	
+		return score;
 	}
 
 	/**
