@@ -195,8 +195,12 @@ public class EvaluationService {
 	 * statement or switch statement whatever is easier for you.
 	 */
 	public String printNumberInWord(int number) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		String[] words = new String[] {"ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE"};
+		if (number >= 0 && number <= 9) {
+			return words[number];
+		} else {
+			return "OTHER";
+		}
 	}
 
 	/**
