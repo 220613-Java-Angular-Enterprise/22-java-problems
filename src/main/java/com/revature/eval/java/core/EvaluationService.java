@@ -317,8 +317,15 @@ public class EvaluationService {
 	 * long name like Portable Network Graphics to its acronym (PNG).
 	 */
 	public String acronym(String phrase) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+		StringBuilder acro = new StringBuilder();
+		// No idea how many potential delimiters there could be
+		// I don't know a clever way to capture every possible separator in order to separate each "word"
+		for(String word : phrase.split(" |-")) {
+			acro.append(word.charAt(0));
+		}
+
+		return acro.toString().toUpperCase();
 	}
 
 	/**
