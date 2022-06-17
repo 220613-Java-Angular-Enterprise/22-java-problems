@@ -554,6 +554,10 @@ public class EvaluationServiceTest {
 	public void phraseMissingAnotherCharacterIsNotPangram() {
 		assertFalse(evaluationService.isPangram("five boxing wizards jump quickly at it"));
 	}
+	@Test
+	public void phraseCommitMessage() {
+		assertTrue(evaluationService.isPangram("kinda done becavse these exquisite panagrams are just too ez lwfy"));
+	}
 
 
 	/*******************************************************************

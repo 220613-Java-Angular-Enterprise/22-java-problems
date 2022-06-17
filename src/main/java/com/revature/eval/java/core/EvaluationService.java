@@ -3,6 +3,7 @@ package com.revature.eval.java.core;
 import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -715,8 +716,18 @@ public class EvaluationService {
 	 * 
 	 * The sum of these multiples is 78.
 	 */
-	public int getSumOfMultiples(int i, int[] set) {
-		return 0;
+	public int getSumOfMultiples(int max, int[] set) {
+		HashSet<Integer> mults = new HashSet<>();
+		int sum = 0;
+		for(int i : set) {
+			int lim = max/i;
+			if(lim*i != max) lim++;
+			for(int j = 1; j < lim; j++) {
+				int temp = i*j;
+				if(mults.add(temp))sum+=temp;
+			}
+		}
+		return(sum);
 	}
 
 	/**
