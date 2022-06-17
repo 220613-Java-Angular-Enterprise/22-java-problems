@@ -7,6 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.w3c.dom.css.Counter;
+
 public class EvaluationService {
 
 	/**
@@ -599,8 +601,18 @@ public class EvaluationService {
 	public static List<Long> calculatePrimeFactorsOf(long l) {
 		
 		LinkedList<Long> ans = new LinkedList<>();
-		lastIter = 2L;
-		calPrime(ans,l);
+		lastIter = 3L;
+		int counter = 0;
+		while(l%2 == 0) {
+			l /= 2;
+			counter++;
+		}
+		if(l > 2) {
+			calPrime(ans,l);
+		}
+		for(int i = 0; i < counter; i++) {
+			ans.addFirst(2L);
+		}
 		
 		return(ans);
 		
@@ -609,10 +621,12 @@ public class EvaluationService {
 	private static void calPrime(LinkedList<Long> list,long l) {
 		//step 1: find the smallest factor of l, div
 
-		long div = 2;
+		long div = 3;
 		boolean found = false;
+	
 		if(l > 3) {
-			for(long i = lastIter; i <= l/2; i++) {
+			for(long i = lastIter; i <= l/2; i+=2) {
+				//if(lastIter > 2 && (i & 1) == 0) i++;
 				if(l%i == 0) {
 					div = i; lastIter = i; found = true; break;
 				}
@@ -639,9 +653,31 @@ public class EvaluationService {
 	 * If your language provides methods in the standard library to deal with prime
 	 * numbers, pretend they don't exist and implement them yourself.
 	 */
-	public int calculateNthPrime(int k) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+	
+	public int calculateNthPrime(int k) throws IllegalArgumentException {
+		IllegalArgumentException e = new IllegalArgumentException();
+		if(k < 1) throw(e);
+		int counter = 3;
+		int loc = 5;
+		if(k == 1) return 2;
+		if(k == 2) return 3;
+		if(k == 3) return 5;
+		while(counter < k) {
+			loc+=2;
+			if(isPrime(loc)) {
+				counter++;
+			}
+		}
+		return loc;
+	}
+	private boolean isPrime(int i) { //does not work for evens, but dont pass those in?
+		boolean ans = true;
+		for(int j = 3; j < i/2; j+=2) {
+			if(i%j == 0) return false;
+			j+=2;
+			if(i%j == 0) return false;
+		}
+		return(ans);
 	}
 
 	/**
