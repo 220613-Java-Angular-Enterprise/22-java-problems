@@ -1,5 +1,6 @@
 package com.revature.eval.java.core;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -428,8 +429,20 @@ public class EvaluationService {
 	 * free: 1
 	 */
 	public Map<String, Integer> wordCount(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		Map<String, Integer> words = new HashMap<>();
+		String[] splitStr = string.split(",\n|[ ,]");
+	
+		for (int i = 0; i < splitStr.length; i++) {
+			String word = splitStr[i];
+			if (words.containsKey(word)) {
+				int count = words.get(word);
+				words.put(word, count + 1);
+			} else {
+				words.put(word, 1);
+			}
+		}
+		
+		return words;
 	}
 
 	/**
