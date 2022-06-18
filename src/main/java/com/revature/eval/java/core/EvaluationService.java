@@ -617,8 +617,25 @@ public class EvaluationService {
 	 * a number is an Armstrong number.
 	 */
 	public boolean isArmstrongNumber(int input) {
-		return false;
+		String stringified = String.valueOf(input);
+		int power = stringified.length();
+		char[] arr = new char[power];
+		arr = stringified.toCharArray();
+	 	int sum = 0;
+		
+	 	for(char i : arr) { 
+	 		sum+=(int)Math.pow(Character.getNumericValue(i), power);
+	 		 
+	 	}
+		
+	 	if(input==sum) {
+	 		return true;
+	 	}else {
+	 		return false;
+	 	}
+		
 	}
+	
 
 	/**
 	 * 17. Prime Factors
