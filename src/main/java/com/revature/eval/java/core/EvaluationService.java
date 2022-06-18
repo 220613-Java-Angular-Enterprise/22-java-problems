@@ -520,7 +520,19 @@ public class EvaluationService {
 	 * a number is an Armstrong number.
 	 */
 	public boolean isArmstrongNumber(int input) {
-		return false;
+		int len = Integer.toString(input).length();
+		int sum = 0;
+		int number = input;
+		int digit = 0;
+		
+		while (number != 0)
+		{
+			digit = number%10;
+			sum += Math.pow(digit, len);
+			number = number / 10;
+		}
+
+		return sum == input;
 	}
 
 	/**
