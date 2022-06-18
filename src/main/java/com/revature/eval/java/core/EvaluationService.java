@@ -436,20 +436,69 @@ public class EvaluationService {
 		}
 
 		public boolean isEquilateral() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			
+			Triangle t = new Triangle();
+			
+			
+			t.setSideOne(this.sideOne);
+			t.setSideTwo(this.sideTwo);
+			t.setSideThree(this.sideThree);
+			
+			
+			if(t.getSideOne()==t.getSideTwo() && t.getSideTwo() == t.getSideThree()) {
+				return true;
+			}else {
+				return false;
+			}
+			
+			
 		}
 
 		public boolean isIsosceles() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			
+			
+			Triangle t = new Triangle();
+			
+			
+			t.setSideOne(this.sideOne);
+			t.setSideTwo(this.sideTwo);
+			t.setSideThree(this.sideThree);
+			
+			
+			if(t.getSideOne()==t.getSideTwo() 
+					||
+					t.getSideTwo() == t.getSideThree() 
+					||
+					t.getSideOne()==t.getSideThree()
+					) {
+				return true;
+			}else {
+				return false;
+			}
+			 
 		}
 
 		public boolean isScalene() {
-			// TODO Write an implementation for this method declaration
-			return false;
-		}
-
+			
+			Triangle t = new Triangle();
+			
+			
+			t.setSideOne(this.sideOne);
+			t.setSideTwo(this.sideTwo);
+			t.setSideThree(this.sideThree);
+			
+			
+			if(t.getSideOne()==t.getSideTwo() 
+					||
+					t.getSideTwo() == t.getSideThree() 
+					||
+					t.getSideOne()==t.getSideThree()
+					) {
+				return false;
+			}else {
+				return true;
+			}
+		 }
 	}
 
 	/**
