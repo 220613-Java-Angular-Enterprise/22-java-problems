@@ -226,7 +226,18 @@ public class EvaluationService {
 	 */
 	public int getGreatestCommonDivisor(int first, int second) {
 		// TODO Write an implementation for this method declaration
-		return 0;
+		if (first < 10 || second < 10) {
+			return -1;
+		}
+		// find divisors, test all numbers from 12 down to 1
+		int gcd = 1;
+		for (int i = 1; i <= first && i <= second; i++)
+		{
+			if ((first % i == 0) && (second % i == 0)) {
+				gcd = i;
+			}
+		}
+		return gcd;
 	}
 
 	/**
