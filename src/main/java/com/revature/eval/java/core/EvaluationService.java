@@ -594,7 +594,29 @@ public class EvaluationService {
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
 	public String cleanPhoneNumber(String string) {
-		return null;
+		
+		String cleanNum ="";
+		StringBuilder sb = new StringBuilder();
+		char[] uncleanNum = null;
+		uncleanNum = string.toCharArray();
+		List<Number> semiCleanNum = new ArrayList<>();
+		
+		for(char c: uncleanNum) {
+			if(Character.isDigit(c)) {
+				sb.append(Character.getNumericValue(c));
+			}
+		}
+		cleanNum = sb.toString();
+		
+		
+		if(cleanNum.length()==10) {
+			cleanNum.substring(1);
+		}else
+		if(cleanNum.length()!=9) {
+			throw new IllegalArgumentException();
+		}
+		
+		return cleanNum;
 	}
 
 	/**
