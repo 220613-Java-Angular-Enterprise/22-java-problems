@@ -615,8 +615,25 @@ public class EvaluationService {
 	 * 
 	 * The sum of these multiples is 78.
 	 */
-	public int getSumOfMultiples(int i, int[] set) {
-		return 0;
+	public int getSumOfMultiples(int number, int[] set) {
+		Set<Integer> nums = new HashSet<>();
+		
+		for (int i = 1; i < number; i++) 
+		{
+			for (int j = 0; j < set.length; j++) 
+			{
+				if (i % set[j] == 0) {
+					nums.add(i);
+				}
+			}
+		}
+		
+		int resultSum = 0;
+		for (int num: nums) {
+			resultSum += num;
+		}
+		
+		return resultSum;
 	}
 	
 	/**
