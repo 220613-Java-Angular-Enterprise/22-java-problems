@@ -142,6 +142,12 @@ public class EvaluationService {
 
 		public static boolean hasTeen(int x, int y, int z) {
 			// TODO Write an implementation for this method declaration
+			if(isTeen(x))
+				return true;
+			if(isTeen(y))
+				return true;
+			if(isTeen(z))
+				return true;
 			return false;
 		}
 
@@ -149,6 +155,8 @@ public class EvaluationService {
 		// Then pass the parameter to hasTeen method
 
 		public static boolean isTeen(int number) {
+			if((number >= 13) && (number <= 19))
+				return true;
 			// TODO Write an implementation for this method declaration
 			return false;
 		}
@@ -171,7 +179,13 @@ public class EvaluationService {
 	 */
 	public String printYearsAndDays(long minutes) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		long hours = minutes / 60;
+		long days = hours / 24;
+		long years = days / 365;
+		days = days % 365;
+		if(minutes < 0)
+			return "Invalid Value";
+		else return (minutes + " min = " + years + " y and " + days + " d");
 	}
 
 	/**
