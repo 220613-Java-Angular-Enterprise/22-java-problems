@@ -2,9 +2,11 @@ package com.revature.eval.java.core;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 
 public class EvaluationService {
 
@@ -589,9 +591,17 @@ public class EvaluationService {
 	 * The alphabet used consists of ASCII letters a to z, inclusive, and is case
 	 * insensitive. Input will not contain non-ASCII symbols.
 	 */
-	public boolean isPangram(String string) {
-		// TODO Write an implementation for this method declaration
-		return false;
+	public boolean isPangram(String string) 
+	{
+		char lcChars[] = string.toLowerCase().replaceAll("[^a-z]", "").toCharArray();
+		Set<Character> lettersUsed = new HashSet<>();
+		
+		for (int i = 0; i < lcChars.length; i++) 
+		{
+			lettersUsed.add(lcChars[i]);
+		}
+		
+		return lettersUsed.size() == 26;
 	}
 
 	/**
