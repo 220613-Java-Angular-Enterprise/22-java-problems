@@ -262,8 +262,47 @@ public class EvaluationService {
 	 * and there is no resulting remainder.
 	 */
 	public int getGreatestCommonDivisor(int first, int second) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		int common = 0;
+		if(first < 10 || second < 10) {
+			common = -1;
+		}else {
+			
+			List<Integer> firstDs = new ArrayList<>();
+			List<Integer> secondDs = new ArrayList<>();
+			
+			
+			int n=1;
+			while(n<=first) {
+				if(first%n==0) {
+					firstDs.add(n);
+				}
+				n++;
+			}
+			
+			n=1;
+			while(n<=second) {
+				if(second%n==0) {
+					secondDs.add(n);
+				}
+				n++;
+			}
+			
+			for(int i=firstDs.size()-1 ;i>=0; i--) {
+				
+				if(!secondDs.contains(firstDs.get(i))) {
+					continue;
+				}else {
+					common=firstDs.get(i);
+					break;
+				}
+				
+			}
+			
+			
+			
+		}
+
+		return common;
 	}
 
 	/**
