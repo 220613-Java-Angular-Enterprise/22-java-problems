@@ -510,7 +510,7 @@ public class EvaluationService {
 			throw new IllegalArgumentException();
 		}
 		try {
-			Integer.parseInt(string);
+			Long.parseLong(string);
 		} catch (NumberFormatException nfe) {
 			throw new IllegalArgumentException();
 		}
