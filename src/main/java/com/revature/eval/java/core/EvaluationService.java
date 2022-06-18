@@ -199,29 +199,12 @@ public class EvaluationService {
 	 */
 	public String printNumberInWord(int number) {
 		// would probably be better to create a hashmap for these values
-		switch(number) {
-			case 0:
-				return "ZERO";
-			case 1:
-				return "ONE";
-			case 2:
-				return "TWO";
-			case 3:
-				return "THREE";
-			case 4:
-				return "FOUR";
-			case 5:
-				return "FIVE";
-			case 6:
-				return "SIX";
-			case 7:
-				return "SEVEN";
-			case 8:
-				return "EIGHT";
-			case 9:
-				return "NINE";
-			default:
-				return "OTHER";
+		// CORRECTION: use array, and try... finally demonstration
+		String[] words = {"ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE"};
+		try {
+			return words[number];
+		} catch (IndexOutOfBoundsException e) {
+			return "OTHER";
 		}
 	}
 
