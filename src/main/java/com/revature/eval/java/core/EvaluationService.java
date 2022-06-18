@@ -199,7 +199,30 @@ public class EvaluationService {
 	 */
 	public String printNumberInWord(int number) {
 		// TODO Write an implementation for this method declaration
-		return null;
+			switch(number) {
+			case 0:
+				return "ZERO";
+			case 1:
+				return "ONE";
+			case 2:
+				return "TWO";
+			case 3:
+				return "THREE";
+			case 4:
+				return "FOUR";
+			case 5:
+				return "FIVE";
+			case 6:
+				return "SIX";
+			case 7:
+				return "SEVEN";
+			case 8:
+				return "EIGHT";
+			case 9:
+				return "NINE";
+			default:
+				return "OTHER";	
+			}
 	}
 
 	/**
@@ -222,8 +245,17 @@ public class EvaluationService {
 	 * and there is no resulting remainder.
 	 */
 	public int getGreatestCommonDivisor(int first, int second) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		// Euclid's algorithm implementation for GCD.
+		// I.e. divide by remainder until remainder is 0
+		if(first < 10 || second < 10)
+			return -1;
+		int gcd = second;
+		while(second != 0) {
+			gcd = second;
+			second = first % second;
+			first = gcd;
+		}
+		return gcd;
 	}
 
 	/**
@@ -240,8 +272,15 @@ public class EvaluationService {
 	 * invalid value.
 	 */
 	public int sumFirstAndLastDigit(int num) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		// Shoutout to Will for mentioning you can convert char to int easily by subtracting 48
+		// It's an Ascii value thing.
+		if(num < 0)
+			return -1;
+		String sNum = "" + num;
+		int first = (int) sNum.charAt(0) - 48;
+		int last = (int) sNum.charAt(sNum.length()-1) - 48;
+		
+		return first + last;
 	}
 
 	/**
@@ -252,7 +291,11 @@ public class EvaluationService {
 	 */
 	public String reverse(String string) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		String r = "";
+		for(int x = string.length()-1; x >= 0; x--) {
+			r += string.charAt(x);
+		}
+		return r;
 	}
 
 	/**
