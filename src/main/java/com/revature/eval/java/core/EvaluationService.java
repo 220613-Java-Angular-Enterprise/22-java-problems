@@ -199,7 +199,7 @@ public class EvaluationService {
 	 */
 	public String printNumberInWord(int number) {
 		// would probably be better to create a hashmap for these values
-		// CORRECTION: use array, and try... finally demonstration
+		// CORRECTION: use array
 		String[] words = {"ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE"};
 		try {
 			return words[number];
