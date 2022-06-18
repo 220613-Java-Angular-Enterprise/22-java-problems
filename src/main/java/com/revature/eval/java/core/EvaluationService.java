@@ -679,9 +679,29 @@ public class EvaluationService {
 	 * insensitive. Input will not contain non-ASCII symbols.
 	 */
 	public boolean isPangram(String string) {
-		// TODO Write an implementation for this method declaration
-		return false;
-	}
+		
+		boolean bol = true;
+		
+		List<String> Alphabets = new ArrayList<>(Arrays.asList("a", 
+				"b", "c", "d", "e", "f", "g", "h", "i", "j" ,
+				"k", "l", "m", "n", "o", "p", "q", "r", "s" ,
+				"t", "u", "v", "w", "x", "y", "z" ));
+		List<String> sentence = new ArrayList<>();
+		
+		for(String word: string.split(" ")) {
+			for(Character i : word.toCharArray()) {
+				sentence.add(i.toString());
+			}
+		}
+		
+			
+		for(String c: Alphabets) {
+			if(!sentence.contains(c)) {
+				bol = false;
+			}
+		}
+		return bol;		
+ 	}
 
 	/**
 	 * 20. Sum of Multiples 
@@ -711,7 +731,6 @@ public class EvaluationService {
 		return null;
 	}
 //	public int[] threeLuckyNumbers() {
-//		
 //		int counter = 0;
 //		int num = 0;
 //		int[] a = new int[2];
@@ -726,7 +745,6 @@ public class EvaluationService {
 //			}
 //		}
 //		return a;
-//		
 //	}
 	
 	/*
