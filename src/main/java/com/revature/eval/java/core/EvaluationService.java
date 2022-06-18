@@ -1,6 +1,7 @@
 package com.revature.eval.java.core;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -516,8 +517,39 @@ public class EvaluationService {
 	 * 3 + 2*1 + 2*3 + 2 + 1 = 3 + 2 + 6 + 3 = 5 + 9 = 14
 	 */
 	public int getScrabbleScore(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		
+		//Scoring points according to the letters
+		List<String> score1 = new ArrayList<>(Arrays.asList("A", "E", "I", "O", "U", "L", "N", "R", "S", "T"));
+		List<String> score2 = new ArrayList<>(Arrays.asList("D","G"));
+		List<String> score3 = new ArrayList<>(Arrays.asList("B","C","M","P"));
+		List<String> score4 = new ArrayList<>(Arrays.asList("F", "H", "V", "W", "Y"));
+		String score5 = "K";
+		List<String> score8 = new ArrayList<>(Arrays.asList("J","X"));
+		List<String> score10 = new ArrayList<>(Arrays.asList("Q","Z"));
+		
+		int total=0;
+		
+		for(char c : string.toUpperCase().toCharArray() ) {
+			
+			if(Character.toString(c).equalsIgnoreCase(score5)) {
+				total+=5;
+			}else if(score1.contains(Character.toString(c))) {
+				total+=1;
+			}else if(score2.contains(Character.toString(c))) {
+				total+=2;
+			}else if(score3.contains(Character.toString(c))) {
+				total+=3;
+			}else if(score4.contains(Character.toString(c))) {
+				total+=4;
+			}else if(score8.contains(Character.toString(c))) {
+				total+=8;
+			}else if(score10.contains(Character.toString(c))) {
+				total+=10;
+			}
+			
+		}
+		 
+		return total;
 	}
 
 	/**
