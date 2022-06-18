@@ -1,7 +1,9 @@
 package com.revature.eval.java.core;
 
+import java.time.Year;
 import java.util.List;
 import java.util.Map;
+
 
 public class EvaluationService {
 
@@ -22,8 +24,19 @@ public class EvaluationService {
 
 		public static long toMilesPerHour(double kilometersPerHour) {
 			// TODO Write an implementation for this method declaration
-			return 0;
+		
+			if (kilometersPerHour < 0); {
+			return -1; }
+			
+			return Math.round(kilometersPerHour*.62);
 		}
+}
+		
+	
+		
+		//public static long toMilesPerHour(double kilometersPerHour) {
+			
+			 //
 
 		/**
 		 * 1.B Speed Converter - Print Conversion
@@ -42,10 +55,12 @@ public class EvaluationService {
 		 */
 		public static String printConversion(double kilometersPerHour) {
 			// TODO Write an implementation for this method declaration
-			return null;
-		}
-	}
+	
+				double mph = kilometersPerHour * 0.62;
 
+				return ((kilometersPerHour) + " km/h = " + Math.round(mph) + " mi/h");
+			}
+		}
 	/**
 	 * 2. MegaBytes and KiloBytes
 	 * 
@@ -66,9 +81,12 @@ public class EvaluationService {
 	 * If the parameter kiloBytes is less than 0 then print the text "Invalid
 	 * Value".
 	 */
-	public String printMegaBytesAndKiloBytes(int XX) {
-		// TODO Write an implementation for this method declaration
-		return null;
+	public String printMegaBytesAndKiloBytes(int kiloBytes) {
+		if (kB < 0); {
+			return ("Invalid Value"); }
+		int mB = kiloBytes / 1024;
+		return (kiloBytes + " KB = " + mB + " MB and " + (kiloBytes - mB * 1024) + " KB");
+		// TODO 
 	}
 
 	/**
@@ -90,9 +108,17 @@ public class EvaluationService {
 	 * 
 	 * If the hourOfDay parameter is less than 0 or greater than 23, return false.
 	 */
-	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
-		// TODO Write an implementation for this method declaration
+	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) { 
+		if (hourOfDay < 0 || hourOfDay > 23) {
+			return false;
+		}
+		if ((hourOfDay < 8 && isBarking) || (hourOfDay > 22  && isBarking)) {
+			return true;
+		}
 		return false;
+		// TODO Write an implementation for this method declaration
+		//&& and //|| or
+		
 	}
 
 	/**
@@ -107,8 +133,16 @@ public class EvaluationService {
 	 * Otherwise, return false;
 	 */
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
-		// TODO Write an implementation for this method declaration
+		double x = (int)(firstNum * 1000);
+		int y = (int)(secondNum * 1000);
+		
+		if (x == y) {
+			return true;
+		}
 		return false;
+	}
+		// TODO Write an implementation for this method declaration
+
 	}
 
 	/**
@@ -121,21 +155,27 @@ public class EvaluationService {
 	 * parameters is in range 13(inclusive) - 19 (inclusive). Otherwise return
 	 * false.
 	 */
-	static class TeenNumberChecker {
-
-		public static boolean hasTeen(int x, int y, int z) {
-			// TODO Write an implementation for this method declaration
-			return false;
-		}
-
-		// We can initialize isTeen method first
-		// Then pass the parameter to hasTeen method
-
-		public static boolean isTeen(int number) {
-			// TODO Write an implementation for this method declaration
-			return false;
-		}
+	public static boolean hasTeen(int x, int y, int z) {
+		// TODO Write an implementation for this method declaration
+		if (isTeen (x) || isTeen (y) || isTeen(z)) {
+		
+		return true; }
+		
+		return false;
+		
 	}
+
+	// We can initialize isTeen method first
+	// Then pass the parameter to hasTeen method
+
+	public static boolean isTeen(int number) {
+		// TODO Write an implementation for this method declaration
+		if (number >= 13 && number <= 19) {
+			return true;
+		}
+		return false; {
+		}
+}
 
 	/**
 	 * 6. Minutes To Years and Days Calculator
@@ -153,8 +193,13 @@ public class EvaluationService {
 	 * ZZ represents the calculated days.
 	 */
 	public String printYearsAndDays(long minutes) {
+		long y = minutes/525600;
+		long d = minutes/1440;
+		if minutes < 0 {
+		return ("Invalid Value"); }
 		// TODO Write an implementation for this method declaration
-		return null;
+		return (minutes + " min = " + y + " y and " + d + " d");
+	}
 	}
 
 	/**
@@ -167,8 +212,34 @@ public class EvaluationService {
 	 * statement or switch statement whatever is easier for you.
 	 */
 	public String printNumberInWord(int number) {
+		switch (number) {
+		case 0:
+			return "ZERO";
+		case 1:
+			return "ONE";
+		case 2:
+			return "TWO";
+		case 3:
+			return "THREE";
+		case 4:
+			return "FOUR";
+		case 5:
+			return "FIVE";
+		case 6:
+			return "SIX";
+		case 7:
+			return "SEVEN";
+		case 8:
+			return "EIGHT";
+		case 9:
+			return "NINE";
+		default:
+			return "OTHER";
+		}
+	}
+
 		// TODO Write an implementation for this method declaration
-		return null;
+		
 	}
 
 	/**
@@ -192,7 +263,11 @@ public class EvaluationService {
 	 */
 	public int getGreatestCommonDivisor(int first, int second) {
 		// TODO Write an implementation for this method declaration
-		return 0;
+		if (first < 10 || second < 10) {
+		return -1; }
+		
+		return getGreatestCommonDivisor(second, first % second);
+		return getGreatestCommonDivisor(first, second % first);
 	}
 
 	/**
@@ -423,7 +498,7 @@ public class EvaluationService {
 	/**
 	 * 19. Pangram
 	 * 
-	 * Determine if a sentence is a pangram. A pangram (Greek: παν γράμμα, pan
+	 * Determine if a sentence is a pangram. A pangram (Greek: Ï€Î±Î½ Î³Ï�Î¬Î¼Î¼Î±, pan
 	 * gramma, "every letter") is a sentence using every letter of the alphabet at
 	 * least once. The best known English pangram is:
 	 * 
