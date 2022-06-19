@@ -354,18 +354,36 @@ public class EvaluationService {
 	 * reverses a String. Example: reverse("example"); -> "elpmaxe"
 	 */
 	public String reverse(String string) {
+		List<String>  reversed = new ArrayList<>();
 		
-		char[] s = string.toCharArray();
-		int counter = 1;
-		char[] tmp = null;
 		
-		for(int i = s.length-1; i>=0; i--) {
-			tmp[counter]=s[i]; 
-			counter++;
+		if(string.isEmpty()) {
+			return "";
+		}else {
+		
+			List<String> words = Arrays.asList(string.split(" "));
+			
+			
+			
+			for(int i = words.size()-1; i>=0; i--) {
+				
+				char[] word = words.get(i).toCharArray();
+				int counter = 0;
+				 
+				char[] tmp = new char[word.length] ;
+				
+				for(int j = word.length-1; j>=0; j--) {
+					tmp[counter]=word[j]; 
+					counter++;
+				}
+	 			reversed.add(String.valueOf(tmp));
+				
+			}
+			
 		}
-		 
-		return tmp.toString();
-	}
+		return String.join(" ", reversed);
+	}		
+	
 
 	/**
 	 * 11. Acronyms
