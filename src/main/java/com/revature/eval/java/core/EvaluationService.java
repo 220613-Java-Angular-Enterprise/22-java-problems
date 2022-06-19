@@ -3,6 +3,7 @@ package com.revature.eval.java.core;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -575,8 +576,36 @@ public class EvaluationService {
 	 * numbers, pretend they don't exist and implement them yourself.
 	 */
 	public int calculateNthPrime(int k) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		if (k <= 0) {
+			throw new IllegalArgumentException("Input must be bigger than 0.");
+		}
+		class Prime {
+			public boolean isPrime(int number) {
+				if (number == 1) {
+					return false;
+				}
+				for (int i = 2; i < number; i++)
+				{
+					if (number % i == 0) {
+						return false;
+					}
+				}
+				return true;
+			}
+		}
+		Prime p = new Prime();
+		
+		int count = 1;
+		int number = 1;
+		while (count <= k) {
+			number++;
+			if (p.isPrime(number)) {
+				count++;
+			}
+			
+		}
+		
+		return number;
 	}
 
 	/**
