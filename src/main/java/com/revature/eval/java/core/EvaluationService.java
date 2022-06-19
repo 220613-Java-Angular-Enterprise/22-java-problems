@@ -2,8 +2,11 @@ package com.revature.eval.java.core;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class EvaluationService {
 
@@ -763,8 +766,41 @@ public class EvaluationService {
 	 * The sum of these multiples is 78.
 	 */
 	public int getSumOfMultiples(int i, int[] set) {
-		return 0;
+		
+		int total=0;
+		Set<Integer> uniqueMultiples = new HashSet<>();
+		List<Integer> multiples = new ArrayList<>();
+		
+		
+		for(int num: set) {
+			
+			int subTotal = 0;
+			
+			do {
+				subTotal+=num;
+				multiples.add(subTotal);
+				if(subTotal>=i) {
+					subTotal-=num;
+					multiples.remove(multiples.size()-1);
+					break;
+					}
+			}while(subTotal<i);
+			
+			
+			
+		}
+		
+		uniqueMultiples.addAll(multiples);
+		
+		for(int e : uniqueMultiples) {
+			total+=e;
+			 
+		}
+		
+		
+		return total;
 	}
+	
 	
 	/**
 	 * 21. Three Magic Numbers
