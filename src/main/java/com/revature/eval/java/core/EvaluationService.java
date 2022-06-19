@@ -727,9 +727,38 @@ public class EvaluationService {
 	 * numbers, pretend they don't exist and implement them yourself.
 	 */
 	public int calculateNthPrime(int k) {
-		// TODO Write an implementation for this method declaration
-		return 0;
-	}
+		int nth = 1;
+		int counter =1;
+		
+		if(k==1) {
+			return 2;
+			
+		} else if( k < 1){
+			
+			throw new IllegalArgumentException();
+			
+		}
+		
+		while(counter!=k) {
+			 
+			nth+=2;
+			
+	 
+			boolean check = true;
+			for (int i = 2; i <= Math.sqrt(nth); i++) {
+		        if (nth % i == 0) {
+		            check = false;
+		            break;
+		        }
+			}
+			
+			if(check) {
+				counter++;
+			}
+		}
+			
+		return nth;
+ 	}
 
 	/**
 	 * 19. Pangram
