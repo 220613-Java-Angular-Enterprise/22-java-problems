@@ -697,8 +697,22 @@ public class EvaluationService {
 	 * Note that 1 is not a prime number.
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+		long tmp=l;
+		List<Long> primes = new ArrayList<>();
+		
+		for(long i=2; i<=tmp; i++) {
+			
+			
+			while(tmp%i==0) {
+				
+				primes.add(i);
+				tmp/=i;
+			}
+			
+		}
+		
+		return primes;
 	}
 
 	/**
