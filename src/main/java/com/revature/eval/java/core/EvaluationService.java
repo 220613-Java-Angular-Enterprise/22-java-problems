@@ -775,25 +775,23 @@ public class EvaluationService {
 	 * Write a method to return an int array of 3 random numbers between 1 - 100.
 	 * Generate the 3 random numbers (1 - 100 inclusive) using the java.util.Random class.
 	 */
+	 
 	public int[] threeLuckyNumbers() {
-		return null;
+		int counter = 0;
+		int num = 0;
+		int[] a = new int[3];
+		
+		while (counter<=2) {
+			
+			num = (int) (Math.random()*100);
+			
+			if(num>=1 && num<=100) {
+				a[counter] = num;
+				counter++;
+			}
+		}
+		return a;
 	}
-//	public int[] threeLuckyNumbers() {
-//		int counter = 0;
-//		int num = 0;
-//		int[] a = new int[2];
-//		
-//		while (counter<=2) {
-//			
-//			num = (int) Math.random();
-//			
-//			if(num>=1 && num<=100) {
-//				a[counter] = num;
-//				counter++;
-//			}
-//		}
-//		return a;
-//	}
 	
 	/*
 	 * 22. Easy Guessing Game
