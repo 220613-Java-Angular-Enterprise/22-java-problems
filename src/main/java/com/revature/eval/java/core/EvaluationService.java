@@ -2,6 +2,7 @@ package com.revature.eval.java.core;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -649,9 +650,37 @@ public class EvaluationService {
 	 * free: 1
 	 */
 	public Map<String, Integer> wordCount(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+		List<String> words = new ArrayList<>();
+		Set<String> uniqueWords = new HashSet<>();
+		Map<String, Integer> result = new HashMap<>();
+		
+		//Using regex.
+		for(String s: string.split("\\s|,|\\n")) {
+			words.add(s);
+		}
+		
+		uniqueWords.addAll(words);
+		
+	 	int wordCounter=0;
+		for(String s : uniqueWords) {
+			
+			for(String w: words) {
+				if(w.equalsIgnoreCase(s)) {
+					wordCounter++;
+				}
+			}
+			
+			result.put(s, wordCounter);
+			wordCounter=0;
+		}
+		
+		
+		
+	 	return result;
 	}
+		
+	
 
 	/**
 	 * 16. Armstrong Number
@@ -886,7 +915,7 @@ public class EvaluationService {
 		
 		 int num = 0;
 		 do {
-			num = (int) Math.random();
+			num = (int) (Math.random() * (y-x));
 		} while (num < x || num > y);
 		 		
 		return num;
