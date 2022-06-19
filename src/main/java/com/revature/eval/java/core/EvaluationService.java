@@ -265,9 +265,19 @@ public class EvaluationService {
 		// TODO Write an implementation for this method declaration
 		if (first < 10 || second < 10) {
 		return -1; }
-		
-		return getGreatestCommonDivisor(second, first % second);
-		return getGreatestCommonDivisor(first, second % first);
+	    if (first == 0) {
+	        return second; }
+	      if (second == 0) {
+	    	  return first;
+	      }
+	      for (int i = 11; i<= first/second; i++) {
+	    	  if (first/second%i == 0) {
+	      return second; }
+	      
+	      for (int i =11; i<= second/first; i++) {
+	    	  if (second/first%i == 0) {
+	    		  return first; }
+	      
 	}
 
 	/**
@@ -295,8 +305,21 @@ public class EvaluationService {
 	 * reverses a String. Example: reverse("example"); -> "elpmaxe"
 	 */
 	public String reverse(String string) {
+	 char [] letters = new char [string.length()];
+	 
+	 int letterIndex = 0;
+	 for (int i = string.length()-1; i >= 0; i--) {
+		 letters[letterIndex] = string.charAt(i);
+	 }
+	 
+	 String reverse = "";
+	 for (int i = 0; i< string.length(); i++) {
+		 reverse = reverse + letters[i];
+	 }
+	 
+	 return reverse;
+	}
 		// TODO Write an implementation for this method declaration
-		return null;
 	}
 
 	/**
