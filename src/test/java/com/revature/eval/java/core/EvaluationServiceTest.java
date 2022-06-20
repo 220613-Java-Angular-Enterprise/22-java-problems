@@ -114,7 +114,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 5
-	 ******************************************************************/
+	 ******************************************************************
 	@Test
 	public void testTeenNumberChecker1() {
 		assertEquals(true, EvaluationService.TeenNumberChecker.hasTeen(9, 99, 19));
@@ -163,7 +163,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 8
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testGreatestCommonDivisor1() {
 		assertEquals(5, evaluationService.getGreatestCommonDivisor(25, 15));

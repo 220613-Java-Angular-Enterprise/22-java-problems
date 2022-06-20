@@ -14,7 +14,7 @@ public class EvaluationService {
 	public static void main(String[] args)
 	{
 		EvaluationService e = new EvaluationService();
-		System.out.println(e.printMegaBytesAndKiloBytes(2500));
+		System.out.println(e.printYearsAndDays(1051200));
 	}
 	
 	
@@ -223,7 +223,11 @@ public class EvaluationService {
 	 */
 	public String printYearsAndDays(long minutes) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		long years = minutes / 525600;
+		long dayMinutes = minutes - ( years * 525600);
+		long days = dayMinutes / 1440;
+		String temp = minutes + " min = "+ years +" y and " +days + " d";
+		return temp;
 	}
 
 	/**
@@ -237,7 +241,41 @@ public class EvaluationService {
 	 */
 	public String printNumberInWord(int number) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		String temp = "OTHER";
+		switch (number) {
+		case 0:
+			temp = "ZERO";
+			break;
+		case 1:
+			temp = "ONE";
+			break;
+		case 2:
+			temp = "TWO";
+			break;
+		case 3:
+			temp = "THREE";
+			break;
+		case 4:
+			temp = "FOUR";
+			break;
+		case 5:
+			temp = "FIVE";
+			break;
+		case 6:
+			temp = "SIX";
+			break;
+		case 7:
+			temp = "SEVEN";
+			break;
+		case 8:
+			temp = "EIGHT";
+			break;
+		case 9:
+			temp = "NINE";
+			break;
+		}
+		
+		return temp;
 	}
 
 	/**
@@ -261,7 +299,27 @@ public class EvaluationService {
 	 */
 	public int getGreatestCommonDivisor(int first, int second) {
 		// TODO Write an implementation for this method declaration
-		return 0;
+		if(first < 10|| second < 10)
+		{
+			return -1;
+		}
+
+		
+		if(first == second)
+		{
+			return first;
+		}
+		int gcf = 1;
+		for(int i = 2; i<= first; i++)
+		{
+			if(first % i == 0 && second % i == 0)
+			{
+				gcf=i;
+			}
+				
+		}
+		
+		return gcf;
 	}
 
 	/**
