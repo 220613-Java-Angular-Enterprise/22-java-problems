@@ -163,7 +163,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 8
-	 ******************************************************************/
+	 ******************************************************************
 	@Test
 	public void testGreatestCommonDivisor1() {
 		assertEquals(5, evaluationService.getGreatestCommonDivisor(25, 15));
@@ -181,7 +181,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 9
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testFirstAndLastDigit1() {
 		assertEquals(4, evaluationService.sumFirstAndLastDigit(252));

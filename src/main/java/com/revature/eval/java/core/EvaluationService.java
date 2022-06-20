@@ -337,7 +337,18 @@ public class EvaluationService {
 	 */
 	public int sumFirstAndLastDigit(int num) {
 		// TODO Write an implementation for this method declaration
-		return 0;
+		if(num <0)
+		{
+			return -1;
+		}
+		int temp = num % 10;
+		
+		while(num>10)
+		{
+			num = num / 10;
+		}
+		temp = temp +num % 10; 
+		return temp;
 	}
 
 	/**
