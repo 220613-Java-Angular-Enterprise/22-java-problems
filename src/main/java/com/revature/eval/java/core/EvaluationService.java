@@ -2,6 +2,8 @@ package com.revature.eval.java.core;
 
 
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -128,6 +130,15 @@ public class EvaluationService {
 	 * If the hourOfDay parameter is less than 0 or greater than 23, return false.
 	 */
 	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
+		if(hourOfDay < 0 || hourOfDay > 23)
+		{
+			return false;
+		}
+		if(isBarking&& (hourOfDay > 22 ||hourOfDay <8) )
+		{
+			return true;
+		}
+		
 		// TODO Write an implementation for this method declaration
 		return false;
 	}
@@ -145,6 +156,16 @@ public class EvaluationService {
 	 */
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
 		// TODO Write an implementation for this method declaration
+		
+		DecimalFormat format = new DecimalFormat("#.###");
+		format.setRoundingMode(RoundingMode.DOWN);
+		firstNum = Double.parseDouble(format.format(firstNum));
+		secondNum = Double.parseDouble(format.format(secondNum));
+		if(firstNum == secondNum)
+		{
+			return true;
+		}
+		
 		return false;
 	}
 
@@ -162,7 +183,14 @@ public class EvaluationService {
 
 		public static boolean hasTeen(int x, int y, int z) {
 			// TODO Write an implementation for this method declaration
-			return false;
+			
+			boolean temp = false;
+			if(isTeen(x) || isTeen(y) || isTeen(z) )
+			{
+				temp =true;
+			}
+			
+			return temp;
 		}
 
 		// We can initialize isTeen method first
@@ -170,6 +198,10 @@ public class EvaluationService {
 
 		public static boolean isTeen(int number) {
 			// TODO Write an implementation for this method declaration
+			if(number>=13 && number <=19)
+			{
+				return true;
+			}
 			return false;
 		}
 	}

@@ -78,7 +78,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 3
-	 ******************************************************************/
+	 ******************************************************************
 	@Test
 	public void testBarkingDog1() {
 		assertEquals(true, evaluationService.shouldWakeUp(true, 1));
@@ -114,7 +114,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 5
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testTeenNumberChecker1() {
 		assertEquals(true, EvaluationService.TeenNumberChecker.hasTeen(9, 99, 19));
