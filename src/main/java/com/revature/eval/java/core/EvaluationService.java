@@ -1,5 +1,7 @@
 package com.revature.eval.java.core;
 
+
+
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +24,14 @@ public class EvaluationService {
 
 		public static long toMilesPerHour(double kilometersPerHour) {
 			// TODO Write an implementation for this method declaration
-			return 0;
+			
+			if(kilometersPerHour<0)
+			{
+				return -1;
+			}
+			long mph =(long) Math.round(kilometersPerHour/1.609); 
+			
+			return mph;
 		}
 
 		/**
