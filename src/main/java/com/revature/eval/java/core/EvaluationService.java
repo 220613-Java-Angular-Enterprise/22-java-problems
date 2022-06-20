@@ -1,5 +1,6 @@
 package com.revature.eval.java.core;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -105,7 +106,11 @@ public class EvaluationService {
 	 * If the hourOfDay parameter is less than 0 or greater than 23, return false.
 	 */
 	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
-		// TODO Write an implementation for this method declaration
+		if (hourOfDay >= 0 && hourOfDay <= 23) {
+		if (isBarking && ((hourOfDay < 8) || (hourOfDay > 22))) {
+			return true;
+		}
+		}
 		return false;
 	}
 
@@ -121,7 +126,10 @@ public class EvaluationService {
 	 * Otherwise, return false;
 	 */
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
-		// TODO Write an implementation for this method declaration
+		DecimalFormat threePlaces = new DecimalFormat("0.000");
+		if (threePlaces.format(firstNum).equals(threePlaces.format(secondNum)){
+			return true;
+		}
 		return false;
 	}
 
@@ -138,7 +146,9 @@ public class EvaluationService {
 	static class TeenNumberChecker {
 
 		public static boolean hasTeen(int x, int y, int z) {
-			// TODO Write an implementation for this method declaration
+			if((x <=19) && (x >= 13) || (y <=19) && (y >= 13) || (z <=19) && (z >= 13)) {
+				return true;
+			}
 			return false;
 		}
 
@@ -146,7 +156,7 @@ public class EvaluationService {
 		// Then pass the parameter to hasTeen method
 
 		public static boolean isTeen(int number) {
-			// TODO Write an implementation for this method declaration
+			if (number <= 19 || number >= 13)
 			return false;
 		}
 	}
@@ -167,7 +177,11 @@ public class EvaluationService {
 	 * ZZ represents the calculated days.
 	 */
 	public String printYearsAndDays(long minutes) {
-		// TODO Write an implementation for this method declaration
+		if (minutes < 0L) {
+			return "Invalid Value";
+		}else {
+			return (minutes + " min = " + (minutes/525600) + " y and " + (minutes/1440) + " d");
+		}
 		return null;
 	}
 
@@ -181,7 +195,29 @@ public class EvaluationService {
 	 * statement or switch statement whatever is easier for you.
 	 */
 	public String printNumberInWord(int number) {
-		// TODO Write an implementation for this method declaration
+		if(number == 1) {
+			return "ONE";
+		}else if(number == 2) {
+			return "TWO";
+		}else if(number == 3) {
+			return "THREE";
+		}else if(number == 4) {
+			return "FOUR";
+		}else if(number == 5) {
+			return "FIVE";
+		}else if(number == 6) {
+			return "SIX";
+		}else if(number == 7) {
+			return "SEVEN";
+		}else if(number == 8) {
+			return "EIGHT";
+		}else if(number == 9) {
+			return "NINE";
+		}else if(number == 0) {
+			return "ZERO";
+		}else {
+			return "OTHER";
+		}
 		return null;
 	}
 
@@ -205,7 +241,14 @@ public class EvaluationService {
 	 * and there is no resulting remainder.
 	 */
 	public int getGreatestCommonDivisor(int first, int second) {
-		// TODO Write an implementation for this method declaration
+		if(first < 10 || second < 10) {
+			return -1;
+		}
+		for (int i = 1; i <= first && i <= second; i++) {
+			if(first%i == 0 && second%i == 0) {
+				return i;
+			}
+		}
 		return 0;
 	}
 
@@ -223,8 +266,17 @@ public class EvaluationService {
 	 * invalid value.
 	 */
 	public int sumFirstAndLastDigit(int num) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		if(num < 0) {
+			return -1;
+		}
+		int firstDigit = 0;
+		int totalDigits = 1;
+		while (totalDigits < num) {
+			totalDigits = totalDigits * 10;
+		}
+		firstDigit = ((num/totalDigits);
+		
+		return (num%10 + firstDigit);
 	}
 
 	/**
@@ -234,8 +286,11 @@ public class EvaluationService {
 	 * reverses a String. Example: reverse("example"); -> "elpmaxe"
 	 */
 	public String reverse(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		String b = "";
+		for (int i = string.length(); i > 0; i--) {
+			b = b + string.charAt(i);
+		}
+		return b;
 	}
 
 	/**
@@ -246,8 +301,20 @@ public class EvaluationService {
 	 * long name like Portable Network Graphics to its acronym (PNG).
 	 */
 	public String acronym(String phrase) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		boolean firstLetter = true;
+		int lastWord = 0;
+		String finalWord = "";
+		for(int i = 0; i < phrase.length(); i++) {
+			if(phrase.charAt(i).equals(' ') && !firstLetter) {
+				finalWord = finalWord + phrase.charAt(lastWord);
+				if(phrase.length() > i) {
+					lastWord = i + 1;
+				}
+			}
+			firstLetter = false;
+		}
+		finalWord = finalWord + phrase.charAt(lastWord);
+		return finalWord;
 	}
 
 	/**
@@ -302,18 +369,38 @@ public class EvaluationService {
 		}
 
 		public boolean isEquilateral() {
-			// TODO Write an implementation for this method declaration
+			if (sideOne.equals(sideTwo)) {
+				if(sideOne.equals(sideThree)) {
+					return true;
+				}
+			}
 			return false;
 		}
 
 		public boolean isIsosceles() {
-			// TODO Write an implementation for this method declaration
+			if (sideOne.equals(sideTwo)) {
+				return true;
+			}
+			if (sideOne.equals(sideThree)) {
+				return true;
+			}
+			if (sideTwo.equals(sideThree)) {
+				return true;
+			}
 			return false;
 		}
 
 		public boolean isScalene() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			if (sideOne.equals(sideTwo)) {
+				return false;
+			}
+			if (sideOne.equals(sideThree)) {
+				return false;
+			}
+			if (sideTwo.equals(sideThree)) {
+				return false;
+			}
+			return true;
 		}
 
 	}
@@ -333,8 +420,26 @@ public class EvaluationService {
 	 * 3 + 2*1 + 2*3 + 2 + 1 = 3 + 2 + 6 + 3 = 5 + 9 = 14
 	 */
 	public int getScrabbleScore(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		int finalScore = 0;
+		for(int i = 0; i < string.length(); i++) {
+			if(string.charAt(i).equalsignoreCase(j) || string.charAt(i).equalsignoreCase(x)) {
+				finalScore += 8;
+			}else if(string.charAt(i).equalsignoreCase(z)) {
+				finalScore += 10;
+			}else if(string.charAt(i).equalsignoreCase(k)) {
+				finalScore += 5;
+			}else if(string.charAt(i).equalsignoreCase(f) || string.charAt(i).equalsignoreCase(h) || string.charAt(i).equalsignoreCase(v) || string.charAt(i).equalsignoreCase(w) || string.charAt(i).equalsignoreCase(y)) {
+				finalScore += 4;
+			}else if(string.charAt(i).equalsignoreCase(b) || string.charAt(i).equalsignoreCase(c) || string.charAt(i).equalsignoreCase(m) || string.charAt(i).equalsignoreCase(p)) {
+				finalScore += 3;
+			}else if(string.charAt(i).equalsignoreCase(d) || string.charAt(i).equalsignoreCase(g)) {
+				finalScore += 2;
+			}else {
+				finalScore += 1;
+			}
+		}
+		
+		return finalScore;
 	}
 
 	/**
