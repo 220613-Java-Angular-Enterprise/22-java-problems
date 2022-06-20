@@ -19,10 +19,16 @@ public class EvaluationService {
 	 * and return it. For conversion and rounding use Math.round().
 	 */
 	static class SpeedConverter {
-
-		public static long toMilesPerHour(double kilometersPerHour) {
-			// TODO Write an implementation for this method declaration
-			return 0;
+				public static long toMilesPerHour(double kilometersPerHour) {
+					if (kilometersPerHour < 0) {
+						return -1;
+					}
+					else {
+						double speedConversion = Math.round(kilometersPerHour *  0.6213711922);
+						long temp = (long)speedConversion;
+						return 0;
+					}
+					
 		}
 
 		/**
