@@ -351,7 +351,7 @@ public class EvaluationService {
 		private double sideThree;
 
 		public Triangle() {
-			super();
+			super(); 
 		}
 
 		public Triangle(double sideOne, double sideTwo, double sideThree) {
@@ -359,7 +359,9 @@ public class EvaluationService {
 			this.sideOne = sideOne;
 			this.sideTwo = sideTwo;
 			this.sideThree = sideThree;
+		
 		}
+		Triangle t = new Triangle();
 
 		public double getSideOne() {
 			return sideOne;
@@ -385,21 +387,44 @@ public class EvaluationService {
 			this.sideThree = sideThree;
 		}
 
-		public boolean isEquilateral() {
-			// TODO Write an implementation for this method declaration
-			return false;
-		}
-
 		public boolean isIsosceles() {
-			// TODO Write an implementation for this method declaration
-			return false;
+
+			t.setSideOne(this.sideOne);
+			t.setSideTwo(this.sideTwo);
+			t.setSideThree(this.sideThree);
+			
+			
+			if(t.getSideOne()==t.getSideTwo() 
+					||
+					t.getSideTwo() == t.getSideThree() 
+					||
+					t.getSideOne()==t.getSideThree()
+					) {
+				return true;
+			}else {
+				return false;
+			}
+			 
 		}
 
 		public boolean isScalene() {
-			// TODO Write an implementation for this method declaration
-			return false;
-		}
-
+			
+			t.setSideOne(this.sideOne);
+			t.setSideTwo(this.sideTwo);
+			t.setSideThree(this.sideThree);
+			
+			
+			if(t.getSideOne()==t.getSideTwo() 
+					||
+					t.getSideTwo() == t.getSideThree() 
+					||
+					t.getSideOne()==t.getSideThree()
+					) {
+				return false;
+			}else {
+				return true;
+			}
+		 }
 	}
 
 	/**
@@ -467,8 +492,22 @@ public class EvaluationService {
 	 * free: 1
 	 */
 	public Map<String, Integer> wordCount(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+
+	// TODO Write an implementation for this method declaration
+	public Map<String, Integer> wordCount(String[] string) {
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		for (String s : string) {
+
+			if (!map.containsKey(s)) {
+				map.put(s, 1);
+			} else {
+				int count = map.get(s);
+				map.put(s, count + 1);
+			}
+		}
+		return map;
+	}
+
 	}
 
 	/**
@@ -499,8 +538,16 @@ public class EvaluationService {
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
 		// TODO Write an implementation for this method declaration
-		return null;
-	}
+		 long n = l;
+		  List primeFactors = new ArrayList();
+		  for (int i = 2; i <= n; i++) {
+		   while (n % i == 0) {
+		    primeFactors.add(i);
+		    n /= i;
+		   }
+		  }
+		  return primeFactors;
+		}
 
 	/**
 	 * 18. Calculate Nth Prime
@@ -561,7 +608,12 @@ public class EvaluationService {
 	 */
 	
 	public int[] threeLuckyNumbers() {
+		
+		array [Math.random(r)] = 
 		return null;
+		// Random rnd = new Random();
+		// rnd.setSeed(seed);
+		//int number = (int) (Math.random() * 100 + 1)
 	}
 	
 	/*
@@ -575,6 +627,7 @@ public class EvaluationService {
 	 */
 	
 	public int guessingGame(int x, int y) {
+		int number = (int) (Math.random() * y + x);
 		return 0;
 	}
 }
