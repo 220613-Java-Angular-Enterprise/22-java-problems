@@ -29,7 +29,6 @@ public class EvaluationService {
 			}else {
 				return (Long) (Math.round(kilometersPerHour * .621371));
 			}
-			return 0;
 		}
 
 		/**
@@ -53,7 +52,6 @@ public class EvaluationService {
 			} else {
 				return (kilometersPerHour + " km/h = " + (Math.round(kilometersPerHour * .621371)) + " mi/h");
 			}
-			return null;
 		}
 	}
 
@@ -83,7 +81,6 @@ public class EvaluationService {
 		}else {
 			return (XX + " KB = " + ((XX - (XX%1024))/1024) + " MB and " + (XX%1024) + " KB");
 		}
-		return null;
 	}
 
 	/**
@@ -127,7 +124,7 @@ public class EvaluationService {
 	 */
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
 		DecimalFormat threePlaces = new DecimalFormat("0.000");
-		if (threePlaces.format(firstNum).equals(threePlaces.format(secondNum)){
+		if (threePlaces.format(firstNum).equals(threePlaces.format(secondNum))){
 			return true;
 		}
 		return false;
@@ -156,7 +153,9 @@ public class EvaluationService {
 		// Then pass the parameter to hasTeen method
 
 		public static boolean isTeen(int number) {
-			if (number <= 19 || number >= 13)
+			if (number <= 19 || number >= 13) {
+				return true;
+			}
 			return false;
 		}
 	}
@@ -182,7 +181,6 @@ public class EvaluationService {
 		}else {
 			return (minutes + " min = " + (minutes/525600) + " y and " + (minutes/1440) + " d");
 		}
-		return null;
 	}
 
 	/**
@@ -218,7 +216,6 @@ public class EvaluationService {
 		}else {
 			return "OTHER";
 		}
-		return null;
 	}
 
 	/**
@@ -274,7 +271,7 @@ public class EvaluationService {
 		while (totalDigits < num) {
 			totalDigits = totalDigits * 10;
 		}
-		firstDigit = ((num/totalDigits);
+		firstDigit = (num/totalDigits);
 		
 		return (num%10 + firstDigit);
 	}
@@ -305,7 +302,7 @@ public class EvaluationService {
 		int lastWord = 0;
 		String finalWord = "";
 		for(int i = 0; i < phrase.length(); i++) {
-			if(phrase.charAt(i).equals(' ') && !firstLetter) {
+			if(phrase.charAt(i) == ' ' && !firstLetter) {
 				finalWord = finalWord + phrase.charAt(lastWord);
 				if(phrase.length() > i) {
 					lastWord = i + 1;
@@ -369,8 +366,8 @@ public class EvaluationService {
 		}
 
 		public boolean isEquilateral() {
-			if (sideOne.equals(sideTwo)) {
-				if(sideOne.equals(sideThree)) {
+			if (sideOne == sideTwo) {
+				if(sideOne == sideThree) {
 					return true;
 				}
 			}
@@ -378,26 +375,26 @@ public class EvaluationService {
 		}
 
 		public boolean isIsosceles() {
-			if (sideOne.equals(sideTwo)) {
+			if (sideOne == sideTwo) {
 				return true;
 			}
-			if (sideOne.equals(sideThree)) {
+			if (sideOne == sideThree) {
 				return true;
 			}
-			if (sideTwo.equals(sideThree)) {
+			if (sideTwo == sideThree) {
 				return true;
 			}
 			return false;
 		}
 
 		public boolean isScalene() {
-			if (sideOne.equals(sideTwo)) {
+			if (sideOne == sideTwo) {
 				return false;
 			}
-			if (sideOne.equals(sideThree)) {
+			if (sideOne == sideThree) {
 				return false;
 			}
-			if (sideTwo.equals(sideThree)) {
+			if (sideTwo == sideThree) {
 				return false;
 			}
 			return true;
@@ -422,7 +419,7 @@ public class EvaluationService {
 	public int getScrabbleScore(String string) {
 		int finalScore = 0;
 		for(int i = 0; i < string.length(); i++) {
-			if(string.charAt(i).equalsignoreCase(j) || string.charAt(i).equalsignoreCase(x)) {
+			if(string.charAt(i).equalsignoreCase('j') || string.charAt(i).equalsignoreCase(x)) {
 				finalScore += 8;
 			}else if(string.charAt(i).equalsignoreCase(z)) {
 				finalScore += 10;
@@ -476,6 +473,7 @@ public class EvaluationService {
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
 	public String cleanPhoneNumber(String string) {
+				
 		return null;
 	}
 
