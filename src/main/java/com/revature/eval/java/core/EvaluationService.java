@@ -18,10 +18,16 @@ public class EvaluationService {
 	 * Otherwise if it is positive, calculate the value of miles per hour, round it
 	 * and return it. For conversion and rounding use Math.round().
 	 */
+
+	
 	static class SpeedConverter {
 
 		public static long toMilesPerHour(double kilometersPerHour) {
-			// TODO Write an implementation for this method declaration
+			if (kilometersPerHour < 0) {
+				return -1L;
+			}else {
+				return (Long) (Math.round(kilometersPerHour * .621371));
+			}
 			return 0;
 		}
 
@@ -41,7 +47,11 @@ public class EvaluationService {
 		 * Value"
 		 */
 		public static String printConversion(double kilometersPerHour) {
-			// TODO Write an implementation for this method declaration
+			if(kilometersPerHour < 0) {
+				return "Invalid Value";
+			} else {
+				return (kilometersPerHour + " km/h = " + (Math.round(kilometersPerHour * .621371)) + " mi/h");
+			}
 			return null;
 		}
 	}
@@ -67,7 +77,11 @@ public class EvaluationService {
 	 * Value".
 	 */
 	public String printMegaBytesAndKiloBytes(int XX) {
-		// TODO Write an implementation for this method declaration
+		if (XX < 0) {
+			return "Invalid Value";
+		}else {
+			return (XX + " KB = " + ((XX - (XX%1024))/1024) + " MB and " + (XX%1024) + " KB");
+		}
 		return null;
 	}
 
@@ -423,7 +437,7 @@ public class EvaluationService {
 	/**
 	 * 19. Pangram
 	 * 
-	 * Determine if a sentence is a pangram. A pangram (Greek: παν γράμμα, pan
+	 * Determine if a sentence is a pangram. A pangram (Greek:
 	 * gramma, "every letter") is a sentence using every letter of the alphabet at
 	 * least once. The best known English pangram is:
 	 * 
