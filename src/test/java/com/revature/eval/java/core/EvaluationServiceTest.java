@@ -42,7 +42,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 1.B
-	 ******************************************************************/
+	 ******************************************************************
 	@Test
 	public void testPrintConversion1() {
 		assertEquals("1.5 km/h = 1 mi/h", EvaluationService.SpeedConverter.printConversion(1.5));
@@ -78,7 +78,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 3
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testBarkingDog1() {
 		assertEquals(true, evaluationService.shouldWakeUp(true, 1));

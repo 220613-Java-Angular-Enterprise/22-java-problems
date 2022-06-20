@@ -6,6 +6,17 @@ import java.util.List;
 import java.util.Map;
 
 public class EvaluationService {
+	
+	
+	//testing
+	public static void main(String[] args)
+	{
+		EvaluationService e = new EvaluationService();
+		System.out.println(e.printMegaBytesAndKiloBytes(2500));
+	}
+	
+	
+	///////////////////////////////////////////////////////////
 
 	/**
 	 * 1.A Speed Converter - Convert to MilesPerHour
@@ -51,7 +62,15 @@ public class EvaluationService {
 		 */
 		public static String printConversion(double kilometersPerHour) {
 			// TODO Write an implementation for this method declaration
-			return null;
+			
+			String temp = kilometersPerHour + " km/h = ";
+			long mph =toMilesPerHour(kilometersPerHour);
+			if(mph == -1)
+			{
+				return "Invalid Value";
+			}
+			temp = temp + mph + " mi/h";			
+			return temp;
 		}
 	}
 
@@ -75,9 +94,18 @@ public class EvaluationService {
 	 * If the parameter kiloBytes is less than 0 then print the text "Invalid
 	 * Value".
 	 */
-	public String printMegaBytesAndKiloBytes(int XX) {
+	public String printMegaBytesAndKiloBytes(int kb) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		
+		if(kb<0)
+		{
+			return "Invalid Value";
+		}
+		int mb = kb / 1024;
+		int leftoverKb = kb % 1024;
+		
+		String  temp = kb + " KB = " + mb + " MB and " + leftoverKb + " KB"; 
+		return temp;
 	}
 
 	/**
