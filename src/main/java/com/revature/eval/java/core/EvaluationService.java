@@ -177,16 +177,30 @@ public class EvaluationService {
 	static class TeenNumberChecker {
 
 		public static boolean hasTeen(int x, int y, int z) {
-			// TODO Write an implementation for this method declaration
-			return false;
+			if (isTeen(x)) {
+				return true;
+			}
+			else if(isTeen(y)) {
+				return true;
+			}
+			else if (isTeen(z)) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 
 		// We can initialize isTeen method first
 		// Then pass the parameter to hasTeen method
 
 		public static boolean isTeen(int number) {
-			// TODO Write an implementation for this method declaration
-			return false;
+			if (number >= 13 && number <= 19) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 	}
 
@@ -206,8 +220,18 @@ public class EvaluationService {
 	 * ZZ represents the calculated days.
 	 */
 	public String printYearsAndDays(long minutes) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		if (minutes < 0) {
+			return "Invalid Value";
+		}
+		// 1440 min in day
+		//525600 min in year
+		long year = minutes / 525600;
+		long day = (minutes % 525600)/ 1440;
+		String aString = Long.toString(minutes);
+		String bString = Long.toString(year);
+		String dString = Long.toString(day);
+		String cString = aString + " min = " + bString + " y and " + dString + " d";
+		return cString;
 	}
 
 	/**
