@@ -47,8 +47,17 @@ public class EvaluationService {
 		 * Value"
 		 */
 		public static String printConversion(double kilometersPerHour) {
-			// TODO Write an implementation for this method declaration
-			return null;
+			double speedConversion = Math.round(kilometersPerHour *  0.6213711922);
+			if (kilometersPerHour < 0) {
+				System.out.println("Invalid value");
+				return null;
+			}
+			else {
+				String aString = Double.toString(kilometersPerHour);
+				String bString = Double.toString(speedConversion);
+				String cString = aString + " km/h = " + bString + " mi/h";
+				return cString;
+			}
 		}
 	}
 
