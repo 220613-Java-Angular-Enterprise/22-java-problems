@@ -115,8 +115,20 @@ public class EvaluationService {
 	 * If the hourOfDay parameter is less than 0 or greater than 23, return false.
 	 */
 	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		if (hourOfDay < 0 || hourOfDay > 23) {
+			return false;
+		}
+		else {
+			if (hourOfDay < 8 && isBarking) {
+				return true;
+			}
+			else if (hourOfDay > 22 && isBarking) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
 	}
 
 	/**
