@@ -1,7 +1,12 @@
 package com.revature.eval.java.core;
 
+import static org.mockito.Matchers.intThat;
+
+import java.security.PublicKey;
 import java.util.List;
 import java.util.Map;
+
+import org.mockito.cglib.transform.impl.AddStaticInitTransformer;
 
 public class EvaluationService {
 
@@ -22,7 +27,12 @@ public class EvaluationService {
 
 		public static long toMilesPerHour(double kilometersPerHour) {
 			// TODO Write an implementation for this method declaration
-			return 0;
+			if(kilometersPerHour > 0) {
+				 return Math.round(kilometersPerHour/1.5);
+			} else {
+				return -1;
+			}
+			 
 		}
 
 		/**

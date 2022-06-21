@@ -14,11 +14,14 @@ import java.util.Map;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
+//@RunWith(MockitoJUnitRunner.class)
 
 public class EvaluationServiceTest {
-
+	
 	private static final EvaluationService evaluationService = new EvaluationService();
 
+//	@Mock
 	@Rule
 	public ExpectedException expectedException = ExpectedException.none();
 
