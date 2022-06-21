@@ -1,10 +1,14 @@
 package com.revature.eval.java.core;
 
 import static org.mockito.Matchers.intThat;
+import static org.mockito.Matchers.longThat;
+import static org.mockito.Mockito.RETURNS_DEEP_STUBS;
 
 import java.security.PublicKey;
 import java.util.List;
 import java.util.Map;
+
+import javax.lang.model.element.NestingKind;
 
 import org.mockito.cglib.transform.impl.AddStaticInitTransformer;
 
@@ -52,7 +56,10 @@ public class EvaluationService {
 		 */
 		public static String printConversion(double kilometersPerHour) {
 			// TODO Write an implementation for this method declaration
-			return null;
+			long mph = toMilesPerHour(kilometersPerHour);
+			String s = kilometersPerHour + " km/h"  + mph + " mi/h";
+			return s;
+			
 		}
 	}
 
