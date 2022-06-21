@@ -26,7 +26,7 @@ public class EvaluationService {
 					else {
 						double speedConversion = Math.round(kilometersPerHour *  0.6213711922);
 						long temp = (long)speedConversion;
-						return 0;
+						return temp;
 					}
 					
 		}
@@ -49,8 +49,7 @@ public class EvaluationService {
 		public static String printConversion(double kilometersPerHour) {
 			double speedConversion = Math.round(kilometersPerHour *  0.6213711922);
 			if (kilometersPerHour < 0) {
-				System.out.println("Invalid value");
-				return null;
+				return "Invalid Value";
 			}
 			else {
 				String aString = Double.toString(kilometersPerHour);
@@ -82,8 +81,18 @@ public class EvaluationService {
 	 * Value".
 	 */
 	public String printMegaBytesAndKiloBytes(int XX) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		if (XX < 0) {
+			return "Invalid Value";
+		}
+		else {
+			int mbAmount = XX / 1024;
+			int kbExtra = XX % 1024;
+			String aString = Integer.toString(XX);
+			String bString = Integer.toString(mbAmount);
+			String dString = Integer.toString(kbExtra);
+			String cString = aString + " KB = " + bString + " MB and " + dString + " KB";
+			return cString;
+		}
 	}
 
 	/**
