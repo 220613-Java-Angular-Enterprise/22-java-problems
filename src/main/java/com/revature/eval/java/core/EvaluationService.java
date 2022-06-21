@@ -143,8 +143,25 @@ public class EvaluationService {
 	 * Otherwise, return false;
 	 */
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		if (firstNum < 0 && secondNum < 0) {
+			if ((Math.ceil(firstNum * 1000)) == (Math.ceil(secondNum * 1000))) {
+			return true;
+			}
+			else {
+				return false;
+			}
+		}
+		else if (firstNum >= 0 && secondNum >= 0) {
+			if ((Math.floor(firstNum * 1000)) == (Math.floor(secondNum * 1000))) {
+				return true;
+				}
+				else {
+					return false;
+				}
+		}
+		else {
+			return false;
+		}
 	}
 
 	/**
