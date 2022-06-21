@@ -1,6 +1,6 @@
 package com.revature.eval.java.core;
 
-import java.text.DecimalFormat;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -405,7 +405,39 @@ public class EvaluationService {
 	 */
 	public int getScrabbleScore(String string) {
 		// TODO Write an implementation for this method declaration
-		return 0;
+		Map<Character, Integer> scores = new HashMap<>();
+		string = string.toUpperCase();
+		scores.put('A', 1);
+		scores.put('E', 1);
+		scores.put('I', 1);
+		scores.put('O', 1);
+		scores.put('U', 1);
+		scores.put('L', 1);
+		scores.put('N', 1);
+		scores.put('R', 1);
+		scores.put('S', 1);
+		scores.put('T', 1);
+		scores.put('D', 2);
+		scores.put('G', 2);
+		scores.put('B', 3);
+		scores.put('C', 3);
+		scores.put('M', 3);
+		scores.put('P', 3);
+		scores.put('F', 4);
+		scores.put('H', 4);
+		scores.put('V', 4);
+		scores.put('W', 4);
+		scores.put('Y', 4);
+		scores.put('K', 5);
+		scores.put('J', 8);
+		scores.put('X', 8);
+		scores.put('Q', 10);
+		scores.put('Z', 10);
+		int sum = 0;
+		for(int x = 0; x < string.length(); x++) {
+			sum += scores.get(string.charAt(x));
+		}
+		return sum;
 	}
 
 	/**
@@ -442,7 +474,14 @@ public class EvaluationService {
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
 	public String cleanPhoneNumber(String string) {
-		return null;
+		string = string.replaceAll("[^0-9]", "");
+		if(string.length() == 11)
+			string = string.substring(1);
+		if(string.length() > 11)
+			throw new IllegalArgumentException();
+		if(string.length() < 11)
+			throw new IllegalArgumentException();
+		return string;
 	}
 
 	/**
