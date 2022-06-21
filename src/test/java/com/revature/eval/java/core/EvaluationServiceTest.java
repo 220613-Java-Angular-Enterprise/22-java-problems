@@ -303,7 +303,7 @@ public class EvaluationServiceTest {
 
 	/*******************************************************************
 	 * Question 13
-	 ******************************************************************/
+	 ******************************************************************
 	@Test
 	public void testAValuableLetter() {
 		assertEquals(4, evaluationService.getScrabbleScore("f"));
@@ -369,7 +369,7 @@ public class EvaluationServiceTest {
 
 	/*******************************************************************
 	 * Question 15
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void countOneWord() {
 		Map<String, Integer> expectedWordCount = new HashMap<>();
