@@ -47,13 +47,13 @@ public class EvaluationService {
 		 * Value"
 		 */
 		public static String printConversion(double kilometersPerHour) {
-			double speedConversion = Math.round(kilometersPerHour *  0.6213711922);
+			int speedConversion = (int)Math.round(kilometersPerHour *  0.6213711922);
 			if (kilometersPerHour < 0) {
 				return "Invalid Value";
 			}
 			else {
 				String aString = Double.toString(kilometersPerHour);
-				String bString = Double.toString(speedConversion);
+				String bString = Integer.toString(speedConversion);
 				String cString = aString + " km/h = " + bString + " mi/h";
 				return cString;
 			}
@@ -244,8 +244,30 @@ public class EvaluationService {
 	 * statement or switch statement whatever is easier for you.
 	 */
 	public String printNumberInWord(int number) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		switch (number) {
+		case 0:
+			return "ZERO";
+		case 1:
+			return "ONE";
+		case 2:
+			return "TWO";
+		case 3:
+			return "THREE";
+		case 4:
+			return "FOUR";
+		case 5:
+			return "FIVE";
+		case 6:
+			return "SIX";
+		case 7:
+			return "SEVEN";
+		case 8:
+			return "EIGHT";
+		case 9:
+			return "NINE";
+		default: 
+			return "OTHER";
+		}
 	}
 
 	/**
@@ -268,8 +290,29 @@ public class EvaluationService {
 	 * and there is no resulting remainder.
 	 */
 	public int getGreatestCommonDivisor(int first, int second) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		if (first < 10 || second < 10) {
+			return -1;
+		}
+		int temp = 0;
+		if (first >= second) {
+			for (int i = 1; i <= first; i++) {
+				if (first % i == 0 && second % i == 0) {
+					if (temp < i) {
+						temp = i;
+					}
+				}
+			}
+		}
+		if (second >= first) {
+			for (int i = 1; i <= second; i++) {
+				if (first % i == 0 && second % i == 0) {
+					if (temp < i) {
+						temp = i;
+					}
+				}
+			}
+		}
+		return temp;
 	}
 
 	/**
@@ -286,8 +329,22 @@ public class EvaluationService {
 	 * invalid value.
 	 */
 	public int sumFirstAndLastDigit(int num) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		if (num < 0) {
+			return -1;
+		}
+		
+		int firstDigit = 0;
+		int lastDigit = num % 10;
+		int temp = 0;
+		
+		while(num != 0) {
+			temp = num % 10;
+			num = num / 10;
+		}
+		firstDigit = temp;
+		
+		
+		return firstDigit + lastDigit;
 	}
 
 	/**
@@ -297,8 +354,11 @@ public class EvaluationService {
 	 * reverses a String. Example: reverse("example"); -> "elpmaxe"
 	 */
 	public String reverse(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		String reverse = "";
+		for (int i = 0; i < string.length(); i++) {
+			reverse = string.charAt(i) + reverse;
+		}
+		return reverse;
 	}
 
 	/**
@@ -309,8 +369,16 @@ public class EvaluationService {
 	 * long name like Portable Network Graphics to its acronym (PNG).
 	 */
 	public String acronym(String phrase) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		StringBuilder acronym = new StringBuilder();
+		String[] threeWords = phrase.split(" ");
+
+        for(String word : threeWords) {
+            acronym.append( word.substring(0, 1) );
+        }
+        
+        String answer = acronym.toString().toUpperCase();
+      
+        return answer;
 	}
 
 	/**
@@ -365,20 +433,41 @@ public class EvaluationService {
 		}
 
 		public boolean isEquilateral() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			if (sideOne == sideTwo && sideOne == sideThree) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 
 		public boolean isIsosceles() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			int count = 0;
+			if (sideOne == sideTwo) {
+				count += 1;
+			}
+			if (sideOne == sideThree) {
+				count += 1;
+			}
+			if (sideTwo == sideThree) {
+				count += 1;
+			}
+			if (count == 1) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 
 		public boolean isScalene() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			if (sideOne != sideTwo && sideOne != sideThree && sideTwo != sideThree) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
-
 	}
 
 	/**
