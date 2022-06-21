@@ -14,7 +14,7 @@ public class EvaluationService {
 	public static void main(String[] args)
 	{
 		EvaluationService e = new EvaluationService();
-		System.out.println(e.printYearsAndDays(1051200));
+		System.out.println(e.acronym("Complementary metal-oxide semiconductor"));
 	}
 	
 	
@@ -359,7 +359,15 @@ public class EvaluationService {
 	 */
 	public String reverse(String string) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		char[] reverse = new char[string.length()];
+		for(int i=0; i<string.length(); i++)
+		{
+			reverse[i] = string.charAt(string.length()-i-1);
+		}
+		
+		String temp = new String(reverse);
+		
+		return temp;
 	}
 
 	/**
@@ -371,7 +379,26 @@ public class EvaluationService {
 	 */
 	public String acronym(String phrase) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		String acro = "";
+		boolean nextLetter = true;
+		char letter;
+		for(int i=0; i<phrase.length(); i++)
+		{
+			letter = phrase.charAt(i);
+			
+			if(nextLetter && letter != ' ')
+			{
+				acro = acro + Character.toUpperCase(letter);
+				nextLetter = false;
+			}
+			
+			if(letter == ' ' || letter == '-')
+			{
+				nextLetter = true;
+			}
+		}
+		
+		return acro;
 	}
 
 	/**
@@ -427,16 +454,22 @@ public class EvaluationService {
 
 		public boolean isEquilateral() {
 			// TODO Write an implementation for this method declaration
+			if(sideOne == sideTwo && sideTwo == sideThree)
+				return true;
 			return false;
 		}
 
 		public boolean isIsosceles() {
 			// TODO Write an implementation for this method declaration
+			if(sideOne == sideTwo || sideTwo == sideThree || sideOne == sideThree)
+				return true;
 			return false;
 		}
 
 		public boolean isScalene() {
 			// TODO Write an implementation for this method declaration
+			if(sideOne != sideTwo && sideTwo != sideThree && sideOne != sideThree)
+				return true;
 			return false;
 		}
 
@@ -458,7 +491,42 @@ public class EvaluationService {
 	 */
 	public int getScrabbleScore(String string) {
 		// TODO Write an implementation for this method declaration
-		return 0;
+		int temp = 0;
+		for (int i=0; i<string.length(); i++)
+		{
+			temp = temp + getLetterScor(Character.toUpperCase(string.charAt(i)));
+		}
+		return temp;
+	}
+	
+	int getLetterScor(char c)
+	{
+		int temp = -1;
+		
+		if(c == 'A' || c == 'E'|| c == 'I' || c == 'O' || c == 'U' || c == 'L' || c == 'N' || c == 'R' || c == 'S' || c == 'T')
+		{
+			temp = 1;
+		}else if(c == 'D' || c == 'G' )
+		{
+			temp = 2;
+		}else if(c == 'B' || c == 'C' || c == 'M' || c == 'P')
+		{
+			temp = 3;
+		}else if(c == 'F' || c == 'H' || c == 'V' || c == 'W' || c == 'Y')
+		{
+			temp = 4;
+		}else if(c == 'K')
+		{
+			temp = 5;
+		}else if(c == 'J' || c == 'X')
+		{
+			temp = 8;
+		}else if(c == 'Q' || c == 'Z')
+		{
+			temp = 10;
+		}
+		
+		return temp;
 	}
 
 	/**

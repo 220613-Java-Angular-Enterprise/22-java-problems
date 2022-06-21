@@ -181,7 +181,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 9
-	 ******************************************************************/
+	 ******************************************************************
 	@Test
 	public void testFirstAndLastDigit1() {
 		assertEquals(4, evaluationService.sumFirstAndLastDigit(252));
@@ -303,7 +303,7 @@ public class EvaluationServiceTest {
 
 	/*******************************************************************
 	 * Question 13
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testAValuableLetter() {
 		assertEquals(4, evaluationService.getScrabbleScore("f"));
