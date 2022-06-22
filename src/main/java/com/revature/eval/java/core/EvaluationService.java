@@ -1,5 +1,6 @@
 package com.revature.eval.java.core;
 
+import static org.mockito.Matchers.booleanThat;
 import static org.mockito.Matchers.intThat;
 import static org.mockito.Matchers.longThat;
 import static org.mockito.Mockito.RETURNS_DEEP_STUBS;
@@ -11,6 +12,7 @@ import java.util.Map;
 import javax.lang.model.element.NestingKind;
 
 import org.mockito.cglib.transform.impl.AddStaticInitTransformer;
+import org.mockito.internal.stubbing.answers.ReturnsElementsOf;
 
 public class EvaluationService {
 
@@ -115,7 +117,14 @@ public class EvaluationService {
 	 */
 	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
 		// TODO Write an implementation for this method declaration
-		return false;
+		if(hourOfDay == 22 && hourOfDay == 23 
+				|| (hourOfDay >= 0 && hourOfDay < 8) 
+				&& isBarking) {
+			return true;
+		}
+			return false;
+		
+		
 	}
 
 	/**
