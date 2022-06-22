@@ -2,7 +2,9 @@ package com.revature.eval.java.core;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +15,7 @@ public class EvaluationService
 	public static void main(String[] args)
 	{
 		EvaluationService e = new EvaluationService();
-		System.out.println(e.wordCount("one fish two fish red fish blue fish"));
+		System.out.println(e.isArmstrongNumber(845));
 	}
 
 	///////////////////////////////////////////////////////////
@@ -654,13 +656,13 @@ public class EvaluationService
 			}
 			end = i;
 			i++;
-			System.out.println(i);
+			//System.out.println(i);
 			if (i == string.length())
 			{
 				end = i;
 			}
 			subString = (String) string.subSequence(start, end);
-			System.out.println(subString);
+			//System.out.println(subString);
 			if (subString != "")
 			{
 				if (temp.containsKey(subString))
@@ -692,7 +694,32 @@ public class EvaluationService
 	 */
 	public boolean isArmstrongNumber(int input)
 	{
-		return false;
+		int numOfDigits = 0;
+		boolean temp = false;
+		int armstrongSum = 0;
+		int currentDigit;
+		int modifiedInput = input;
+		
+		while(Math.pow(10,numOfDigits) <= input)
+		{
+			numOfDigits++;
+		}
+		
+		for(int i = 0; i<numOfDigits; i++)
+		{
+			currentDigit = modifiedInput % 10;
+			modifiedInput = modifiedInput/10;
+			armstrongSum += Math.pow(currentDigit, numOfDigits);
+			//System.out.println(currentDigit);
+		}
+		
+		if(armstrongSum == input)
+		{
+			temp = true;
+		}
+		//System.out.println(numOfDigits);
+		
+		return temp;
 	}
 
 	/**
@@ -706,7 +733,46 @@ public class EvaluationService
 	public List<Long> calculatePrimeFactorsOf(long l)
 	{
 		// TODO Write an implementation for this method declaration
-		return null;
+		List<Long> temp = new ArrayList<>();
+		for(long i = 2L; i<l; i++)
+		{
+			if(l % i == 0)
+			{
+				if(testPrimeNumber(i))
+				{
+					temp.add(i);
+				}
+				if(l % (i*i) == 0)
+				{
+					temp.add(i);
+				}
+				if(l % (i*i*i) == 0)
+				{
+					temp.add(i);
+					//temp.add(i);
+				}
+			}
+		}
+		if(testPrimeNumber(l))
+		{
+			temp.add(l);
+		}
+		
+		return temp;
+	}
+	
+	public static boolean testPrimeNumber(Long num)
+	{
+		//boolean temp = true;
+		for(int i = 2; i <= num/2; i++)
+		{
+			if(num % i==0)
+			{
+				return false;
+			}
+		}
+		
+		return true;
 	}
 
 	/**
@@ -723,7 +789,26 @@ public class EvaluationService
 	public int calculateNthPrime(int k)
 	{
 		// TODO Write an implementation for this method declaration
-		return 0;
+		
+		if(k<1)
+		{
+			throw new IllegalArgumentException();
+		}
+		int temp = 2;
+		int i = 0;
+		long j = 1;
+		while(i<k)
+		{
+			j++;
+			if(testPrimeNumber(j))
+			{
+				i++;
+			}
+			
+		}
+		temp = (int) j;
+		
+		return temp;
 	}
 
 	/**

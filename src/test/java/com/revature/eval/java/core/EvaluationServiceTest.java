@@ -369,7 +369,7 @@ public class EvaluationServiceTest {
 
 	/*******************************************************************
 	 * Question 15
-	 ******************************************************************/
+	 ******************************************************************
 	@Test
 	public void countOneWord() {
 		Map<String, Integer> expectedWordCount = new HashMap<>();
@@ -494,7 +494,7 @@ public class EvaluationServiceTest {
 
 	/*******************************************************************
 	 * Question 18
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testFirstPrime() {
 		assertThat(evaluationService.calculateNthPrime(1), is(2));
