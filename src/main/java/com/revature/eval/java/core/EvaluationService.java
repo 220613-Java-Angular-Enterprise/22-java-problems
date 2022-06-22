@@ -4,9 +4,13 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
+import java.util.Set;
+import java.util.stream.IntStream;
 
 public class EvaluationService
 {
@@ -15,7 +19,7 @@ public class EvaluationService
 	public static void main(String[] args)
 	{
 		EvaluationService e = new EvaluationService();
-		System.out.println(e.isArmstrongNumber(845));
+		e.threeLuckyNumbers();
 	}
 
 	///////////////////////////////////////////////////////////
@@ -826,6 +830,44 @@ public class EvaluationService
 	public boolean isPangram(String string)
 	{
 		// TODO Write an implementation for this method declaration
+		Set<Character> remainingCharacters = new HashSet<Character>();
+		remainingCharacters.add('a');
+		remainingCharacters.add('b');
+		remainingCharacters.add('c');
+		remainingCharacters.add('d');
+		remainingCharacters.add('e');
+		remainingCharacters.add('f');
+		remainingCharacters.add('g');
+		remainingCharacters.add('h');
+		remainingCharacters.add('i');
+		remainingCharacters.add('j');
+		remainingCharacters.add('k');
+		remainingCharacters.add('l');
+		remainingCharacters.add('m');
+		remainingCharacters.add('n');
+		remainingCharacters.add('o');
+		remainingCharacters.add('p');
+		remainingCharacters.add('q');
+		remainingCharacters.add('r');
+		remainingCharacters.add('s');
+		remainingCharacters.add('t');
+		remainingCharacters.add('u');
+		remainingCharacters.add('v');
+		remainingCharacters.add('w');
+		remainingCharacters.add('x');
+		remainingCharacters.add('y');
+		remainingCharacters.add('z');
+		
+		for(int i=0; i<string.length();i++)
+		{
+			if(string.charAt(i) != ' ')
+			{
+				remainingCharacters.remove(Character.toLowerCase(string.charAt(i)));
+			}
+		}
+		if(remainingCharacters.isEmpty())
+			return true;
+		
 		return false;
 	}
 
@@ -842,7 +884,23 @@ public class EvaluationService
 	 */
 	public int getSumOfMultiples(int i, int[] set)
 	{
-		return 0;
+		int temp = 0;
+		Set<Integer> unique = new HashSet<>();
+		
+		for(int index : set)
+		{
+			for(int j = 1; j*index<i;j++)
+			{
+				if(!unique.contains(j*index))
+				{
+					unique.add(j*index);
+					temp+= (j*index);
+				}
+			}
+		}
+		
+		
+		return temp;
 	}
 
 	/**
@@ -858,7 +916,15 @@ public class EvaluationService
 
 	public int[] threeLuckyNumbers()
 	{
-		return null;
+		int[] temp = new int[3];
+		
+		Random rand = new Random();
+		temp[0] = rand.nextInt(1, 101);
+		temp[1] = rand.nextInt(1, 101);
+		temp[2] = rand.nextInt(1, 101);
+		
+		//System.out.println();
+		return temp;
 	}
 
 	/*
@@ -873,7 +939,11 @@ public class EvaluationService
 
 	public int guessingGame(int x, int y)
 	{
-		return 0;
+		int temp=0;
+		int range = Math.abs(y-x);
+		temp = (int) (Math.random()*range)+x;
+		
+		return temp;
 	}
 }
 

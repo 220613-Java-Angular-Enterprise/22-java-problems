@@ -24,7 +24,7 @@ public class EvaluationServiceTest {
 
 	/*******************************************************************
 	 * Question 1.A
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testSpeedConverter1() {
 		assertEquals(1, EvaluationService.SpeedConverter.toMilesPerHour(1.5));
@@ -42,7 +42,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 1.B
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testPrintConversion1() {
 		assertEquals("1.5 km/h = 1 mi/h", EvaluationService.SpeedConverter.printConversion(1.5));
@@ -60,7 +60,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 2
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testPrintMegaBytesAndKiloBytes1() {
 		assertEquals("2500 KB = 2 MB and 452 KB", evaluationService.printMegaBytesAndKiloBytes(2500));
@@ -78,7 +78,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 3
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testBarkingDog1() {
 		assertEquals(true, evaluationService.shouldWakeUp(true, 1));
@@ -96,7 +96,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 4
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testDecimalComparator1() {
 		assertEquals(true, evaluationService.areEqualByThreeDecimalPlaces(-3.1756, -3.175));
@@ -114,7 +114,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 5
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testTeenNumberChecker1() {
 		assertEquals(true, EvaluationService.TeenNumberChecker.hasTeen(9, 99, 19));
@@ -132,7 +132,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 6
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testMinutesToDaysAndYears1() {
 		assertEquals("525600 min = 1 y and 0 d", evaluationService.printYearsAndDays(525600));
@@ -150,7 +150,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 7
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testNumberInWord1() {
 		assertEquals("THREE", evaluationService.printNumberInWord(3));
@@ -163,7 +163,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 8
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testGreatestCommonDivisor1() {
 		assertEquals(5, evaluationService.getGreatestCommonDivisor(25, 15));
@@ -181,7 +181,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 9
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testFirstAndLastDigit1() {
 		assertEquals(4, evaluationService.sumFirstAndLastDigit(252));
@@ -204,7 +204,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 10
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testAnEmptyString() {
 		assertEquals("", evaluationService.reverse(""));
@@ -232,7 +232,7 @@ public class EvaluationServiceTest {
 
 	/*******************************************************************
 	 * Question 11
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void basic() {
 		final String phrase = "Portable Network Graphics";
@@ -263,7 +263,7 @@ public class EvaluationServiceTest {
 
 	/*******************************************************************
 	 * Question 12
-	 ******************************************************************
+	 ******************************************************************/
 
 	@Test
 	public void trianglesWithNoEqualSidesAreNotEquilateral() {
@@ -303,7 +303,7 @@ public class EvaluationServiceTest {
 
 	/*******************************************************************
 	 * Question 13
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testAValuableLetter() {
 		assertEquals(4, evaluationService.getScrabbleScore("f"));
@@ -331,7 +331,7 @@ public class EvaluationServiceTest {
 
 	/*******************************************************************
 	 * Question 14
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void cleansTheNumber() {
 		final String expectedNumber = "2234567890";
@@ -369,7 +369,7 @@ public class EvaluationServiceTest {
 
 	/*******************************************************************
 	 * Question 15
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void countOneWord() {
 		Map<String, Integer> expectedWordCount = new HashMap<>();
@@ -427,7 +427,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 16
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void singleDigitsAreArmstrongNumbers() {
 		int input = 5;
@@ -465,7 +465,7 @@ public class EvaluationServiceTest {
 
 	/*******************************************************************
 	 * Question 17
-	 ******************************************************************
+	 ******************************************************************/
 
 	@Test
 	public void testPrimeNumber() {
@@ -523,7 +523,7 @@ public class EvaluationServiceTest {
 
 	/*******************************************************************
 	 * Question 19
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void emptySentenceIsNotPangram() {
 		assertFalse(evaluationService.isPangram(""));
@@ -552,7 +552,7 @@ public class EvaluationServiceTest {
 
 	/*******************************************************************
 	 * Question 20
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testSumOfMultiplesOf4and6UpToFifteen() {
 
@@ -596,7 +596,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 21
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testThreeLuckyNumbers() {
 		int[] arr = evaluationService.threeLuckyNumbers();
@@ -613,7 +613,7 @@ public class EvaluationServiceTest {
 	
 	/*******************************************************************
 	 * Question 22
-	 ******************************************************************
+	 ******************************************************************/
 	@Test
 	public void testGuessingGame() {
 		int n = evaluationService.guessingGame(1, 10);
