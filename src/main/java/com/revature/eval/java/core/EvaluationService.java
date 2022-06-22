@@ -419,17 +419,17 @@ public class EvaluationService {
 	public int getScrabbleScore(String string) {
 		int finalScore = 0;
 		for(int i = 0; i < string.length(); i++) {
-			if(string.charAt(i).equalsignoreCase('j') || string.charAt(i).equalsignoreCase(x)) {
+			if(string.charAt(i) == 'j' || string.charAt(i) == 'x') {
 				finalScore += 8;
-			}else if(string.charAt(i).equalsignoreCase(z)) {
+			}else if(string.charAt(i) == 'z') {
 				finalScore += 10;
-			}else if(string.charAt(i).equalsignoreCase(k)) {
+			}else if(string.charAt(i) == 'k') {
 				finalScore += 5;
-			}else if(string.charAt(i).equalsignoreCase(f) || string.charAt(i).equalsignoreCase(h) || string.charAt(i).equalsignoreCase(v) || string.charAt(i).equalsignoreCase(w) || string.charAt(i).equalsignoreCase(y)) {
+			}else if(string.charAt(i) == 'f' || string.charAt(i) == 'h' || string.charAt(i) == 'v' || string.charAt(i) == 'w' || string.charAt(i) == 'y') {
 				finalScore += 4;
-			}else if(string.charAt(i).equalsignoreCase(b) || string.charAt(i).equalsignoreCase(c) || string.charAt(i).equalsignoreCase(m) || string.charAt(i).equalsignoreCase(p)) {
+			}else if(string.charAt(i) == 'b' || string.charAt(i) == 'c' || string.charAt(i) == 'm' || string.charAt(i) == 'p') {
 				finalScore += 3;
-			}else if(string.charAt(i).equalsignoreCase(d) || string.charAt(i).equalsignoreCase(g)) {
+			}else if(string.charAt(i) == 'd' || string.charAt(i) == 'g') {
 				finalScore += 2;
 			}else {
 				finalScore += 1;
@@ -473,7 +473,7 @@ public class EvaluationService {
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
 	public String cleanPhoneNumber(String string) {
-				
+		
 		return null;
 	}
 
