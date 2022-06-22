@@ -56,9 +56,12 @@ public class EvaluationService {
 		 */
 		public static String printConversion(double kilometersPerHour) {
 			// TODO Write an implementation for this method declaration
+			if(kilometersPerHour < 0) {
+				return "Invalid Value";
+			}
 			long mph = toMilesPerHour(kilometersPerHour);
 			String s = kilometersPerHour + " km/h"  + mph + " mi/h";
-			return s;
+			return s;                                                                                                                                                                               
 			
 		}
 	}
@@ -83,9 +86,12 @@ public class EvaluationService {
 	 * If the parameter kiloBytes is less than 0 then print the text "Invalid
 	 * Value".
 	 */
-	public String printMegaBytesAndKiloBytes(int XX) {
+	public String printMegaBytesAndKiloBytes(int kiloBytes) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		int XX = kiloBytes;
+		int YY = XX / 1024;
+		int ZZ = kiloBytes % 1024;
+		return XX + " KB = " + YY + " MB and " + ZZ + " KB";
 	}
 
 	/**
