@@ -1,5 +1,6 @@
 package com.revature.eval.java.core;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -485,8 +486,56 @@ public class EvaluationService {
 	 * 3 + 2*1 + 2*3 + 2 + 1 = 3 + 2 + 6 + 3 = 5 + 9 = 14
 	 */
 	public int getScrabbleScore(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		char [] letters1 = new char [] {'A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'};
+		char [] letters2 = new char [] {'D', 'G'};
+		char [] letters3 = new char [] {'B', 'C', 'M', 'P'};
+		char [] letters4 = new char [] {'F', 'H', 'V', 'W', 'Y'};
+		char [] letters5 = new char [] {'K'};
+		char [] letters8 = new char [] {'J', 'X'};
+		char [] letters10 = new char [] {'Q', 'Z'};
+		
+		int sum = 0;
+		String upperString = string.toUpperCase();
+		for (int i = 0; i < upperString.length(); i++) {
+			for (int j = 0; j < letters1.length; j++) {
+				if (upperString.charAt(i) == letters1[j]) {
+					sum += 1;
+				}
+			}
+			for (int j = 0; j < letters2.length; j++) {
+				if (upperString.charAt(i) == letters2[j]) {
+					sum += 2;
+				}
+			}
+			for (int j = 0; j < letters3.length; j++) {
+				if (upperString.charAt(i) == letters3[j]) {
+					sum += 3;
+				}
+			}
+			
+			for (int j = 0; j < letters4.length; j++) {
+				if (upperString.charAt(i) == letters4[j]) {
+					sum += 4;
+				}
+			}
+			for (int j = 0; j < letters5.length; j++) {
+				if (upperString.charAt(i) == letters5[j]) {
+					sum += 5;
+				}
+			}
+			for (int j = 0; j < letters8.length; j++) {
+				if (upperString.charAt(i) == letters8[j]) {
+					sum += 8;
+				}
+			}
+			for (int j = 0; j < letters10.length; j++) {
+				if (upperString.charAt(i) == letters10[j]) {
+					sum += 10;
+				}
+			}
+				
+		}
+		return sum;
 	}
 
 	/**
@@ -523,7 +572,11 @@ public class EvaluationService {
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
 	public String cleanPhoneNumber(String string) {
-		return null;
+		String cleanNumber = string.replaceAll("[^0-9+]", "");
+		if (cleanNumber.charAt(0) == '1') {
+			cleanNumber = cleanNumber.substring(1);
+		}
+		return cleanNumber;
 	}
 
 	/**
@@ -535,7 +588,8 @@ public class EvaluationService {
 	 * free: 1
 	 */
 	public Map<String, Integer> wordCount(String string) {
-		// TODO Write an implementation for this method declaration
+		Map<String, Integer> words = new HashMap<String, Integer>();
+		
 		return null;
 	}
 
