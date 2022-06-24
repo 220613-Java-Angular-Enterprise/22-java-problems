@@ -1,6 +1,9 @@
 package com.revature.eval.java.core;
 
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -124,6 +127,7 @@ public class EvaluationService {
 	 */
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
 		DecimalFormat threePlaces = new DecimalFormat("0.000");
+		threePlaces.setRoundingMode(RoundingMode.DOWN);
 		if (threePlaces.format(firstNum).equals(threePlaces.format(secondNum))){
 			return true;
 		}
@@ -179,7 +183,7 @@ public class EvaluationService {
 		if (minutes < 0L) {
 			return "Invalid Value";
 		}else {
-			return (minutes + " min = " + (minutes/525600) + " y and " + (minutes/1440) + " d");
+			return (minutes + " min = " + (minutes/525600) + " y and " + (((minutes - ((minutes/525600)*525600))*365)/525600) + " d");
 		}
 	}
 
@@ -241,10 +245,20 @@ public class EvaluationService {
 		if(first < 10 || second < 10) {
 			return -1;
 		}
-		for (int i = 1; i <= first && i <= second; i++) {
+		if (first < second) {
+		for (int i = second; i > 0; i--) {
 			if(first%i == 0 && second%i == 0) {
 				return i;
 			}
+		}
+		}
+		if (first > second) {
+		
+		for (int i = first; i > 0; i--) {
+			if(first%i == 0 && second%i == 0) {
+				return i;
+			}
+		}
 		}
 		return 0;
 	}
@@ -266,11 +280,15 @@ public class EvaluationService {
 		if(num < 0) {
 			return -1;
 		}
+		if(num == 0) {
+			return 0;
+		}
 		int firstDigit = 0;
 		int totalDigits = 1;
 		while (totalDigits < num) {
 			totalDigits = totalDigits * 10;
 		}
+		totalDigits = (totalDigits/10);
 		firstDigit = (num/totalDigits);
 		
 		return (num%10 + firstDigit);
@@ -285,7 +303,7 @@ public class EvaluationService {
 	public String reverse(String string) {
 		String b = "";
 		for (int i = string.length(); i > 0; i--) {
-			b = b + string.charAt(i);
+			b = new String(b + string.charAt(i-1));
 		}
 		return b;
 	}
@@ -302,15 +320,15 @@ public class EvaluationService {
 		int lastWord = 0;
 		String finalWord = "";
 		for(int i = 0; i < phrase.length(); i++) {
-			if(phrase.charAt(i) == ' ' && !firstLetter) {
-				finalWord = finalWord + phrase.charAt(lastWord);
+			if((phrase.charAt(i) == '-' || phrase.charAt(i) == ' ') && !firstLetter) {
+				finalWord = finalWord + Character.toUpperCase(phrase.charAt(lastWord));
 				if(phrase.length() > i) {
 					lastWord = i + 1;
 				}
 			}
 			firstLetter = false;
 		}
-		finalWord = finalWord + phrase.charAt(lastWord);
+		finalWord = finalWord + Character.toUpperCase(phrase.charAt(lastWord));
 		return finalWord;
 	}
 
@@ -421,13 +439,13 @@ public class EvaluationService {
 		for(int i = 0; i < string.length(); i++) {
 			if(string.charAt(i) == 'j' || string.charAt(i) == 'x') {
 				finalScore += 8;
-			}else if(string.charAt(i) == 'z') {
+			}else if(string.charAt(i) == 'z' || string.charAt(i) == 'q') {
 				finalScore += 10;
 			}else if(string.charAt(i) == 'k') {
 				finalScore += 5;
 			}else if(string.charAt(i) == 'f' || string.charAt(i) == 'h' || string.charAt(i) == 'v' || string.charAt(i) == 'w' || string.charAt(i) == 'y') {
 				finalScore += 4;
-			}else if(string.charAt(i) == 'b' || string.charAt(i) == 'c' || string.charAt(i) == 'm' || string.charAt(i) == 'p') {
+			}else if(string.charAt(i) == 'b' || string.charAt(i) == 'c' || string.charAt(i) == 'm' || string.charAt(i) == 'p' || string.charAt(i) == 'O') {
 				finalScore += 3;
 			}else if(string.charAt(i) == 'd' || string.charAt(i) == 'g') {
 				finalScore += 2;
@@ -486,7 +504,25 @@ public class EvaluationService {
 	 * free: 1
 	 */
 	public Map<String, Integer> wordCount(String string) {
-		// TODO Write an implementation for this method declaration
+//		List<String> words = new ArrayList<>();
+//		List<Integer> wordCounter = new ArrayList<>();
+//		int lastWord = 0;
+//		for(int i = 0; i < string.length(); i++) {
+//			if(string.charAt(i) == ' ' && i != lastWord) {
+//				if(words.indexOf(string.substring(lastWord, i)) != -1) {
+//					
+//				}
+//			}
+//		}
+		Map<String, Integer> endMap = new HashMap<String, Integer>();
+		List<Integer> wordCounter = new ArrayList<>();
+		String[] words = string.split(" ");
+		for(int i = 0; i < words.length; i++) {
+			if (true) {
+				
+			}
+		}
+		
 		return null;
 	}
 
