@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 public class EvaluationService {
@@ -688,7 +689,8 @@ public class EvaluationService {
 	 */
 	
 	public int[] threeLuckyNumbers() {
-		int[] magic = {(int)(Math.random() * 100) + 1, (int)(Math.random() * 100) + 1, (int)(Math.random() * 100) + 1};
+		Random rand = new Random();
+		int[] magic = {rand.nextInt(101), rand.nextInt(101), rand.nextInt(101)};
 		return magic;
 	}
 	
