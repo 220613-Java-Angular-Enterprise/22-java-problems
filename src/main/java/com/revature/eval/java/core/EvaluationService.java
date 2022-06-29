@@ -590,7 +590,30 @@ public class EvaluationService {
 	public Map<String, Integer> wordCount(String string) {
 		Map<String, Integer> words = new HashMap<String, Integer>();
 		
-		return null;
+		String[] strArray = string.split(" ");
+		
+		if (strArray.length == 1) {
+			words.put(string, 1);
+			return words;
+		}
+		else {
+			for (int i = 0; i < strArray.length; i++ ){
+			int count = 1;
+			for (int j = i+1; j < strArray.length; j++) {
+				if (strArray[i].equals(strArray[j])) {
+					strArray[j] = "0";
+					count++;
+				}
+			}
+			if(strArray[i]!="0") {
+				words.put(strArray[i], count);
+				count=1;
+			}
+			}
+		
+			return words;
+		}
+		
 	}
 
 	/**
