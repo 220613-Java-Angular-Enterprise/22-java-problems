@@ -1,5 +1,6 @@
 package com.revature.eval.java.core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -590,7 +591,7 @@ public class EvaluationService {
 	public Map<String, Integer> wordCount(String string) {
 		Map<String, Integer> words = new HashMap<String, Integer>();
 		
-		String[] strArray = string.split(" ");
+		String[] strArray = string.split("[, ?.@\n]+");
 		
 		if (strArray.length == 1) {
 			words.put(string, 1);
@@ -631,7 +632,21 @@ public class EvaluationService {
 	 * a number is an Armstrong number.
 	 */
 	public boolean isArmstrongNumber(int input) {
-		return false;
+		
+		String stringNum = String.valueOf(input);
+		String[] stringNumArray = stringNum.split("");
+		int sum = 0;
+		
+		for (int i = 0; i < stringNumArray.length; i++){
+			int indiv = Integer.valueOf(stringNumArray[i]);
+			sum += Math.pow(indiv, stringNumArray.length);
+		}
+		if (sum == input) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	/**
@@ -643,8 +658,21 @@ public class EvaluationService {
 	 * Note that 1 is not a prime number.
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+		List<Long> primeList= new ArrayList<Long>();
+		int flag = 1;
+		for (long i = 2; i <= l; i++) {
+			for (long j = 2; j <= i/2; j++) {
+				if (i % j == 0 ) {
+					flag = 0;
+					break;
+				}
+			}
+			if (flag == 1) {
+				primeList.add(i);
+			}
+		}
+		return primeList;
 	}
 
 	/**

@@ -1,31 +1,31 @@
 package com.revature.eval.java.core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class PersonalTesting {
 
 	public static void main(String[] args) {
-		Map<String, Integer> words = new HashMap<String, Integer>();
+		System.out.println(calculatePrimeFactorsOf(2L));
+	}
+	
+public static List<Long> calculatePrimeFactorsOf(long l) {
 		
-		String string = "one fish two fish red fish blue fish";
-		String[] strArray = string.split(" ");
-		
-		for (int i = 0; i < strArray.length; i++ ){
-			int count = 1;
-			for (int j = i+1; j < strArray.length; j++) {
-				if (strArray[i].equals(strArray[j])) {
-					strArray[j] = "0";
-					count++;
+		List<Long> primeList= new ArrayList<Long>();
+		int flag = 1;
+		for (long i = 2; i <= l; i++) {
+			for (long j = 2; j <= i/2; j++) {
+				if (i % j == 0 ) {
+					flag = 0;
+					break;
 				}
 			}
-			if(strArray[i]!="0") {
-				words.put(strArray[i], count);
-				count=1;
+			if (flag == 1) {
+				primeList.add(i);
 			}
-		         System.out.println(strArray[i]+"--"+count); //Printing the word along with count
-		         
-			
 		}
+		return primeList;
 	}
 }
